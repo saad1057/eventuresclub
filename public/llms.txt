@@ -1,0 +1,43 @@
+# Eventures Club
+
+> Lahore desk for northern Pakistan tours and for events. Tours have published starting prices. Events are quoted from a separate brief. The website does not take payment.
+
+Eventures Club plans journeys to Nathiagali, Naran, Swat, Kumrat, Hunza, Chitral and Skardu, and separately plans corporate events, weddings and private gatherings. Prices below are per person from Lahore for four people sharing a standard room and one vehicle. They are starting points. A written plan after the brief is the price that counts.
+
+## Tours
+
+- [All tours](https://eventuresclub.com/tours): eight northern routes from Lahore
+- [Galiyat and Nathiagali](https://eventuresclub.com/tours/galiyat-nathiagali): 3 days, from PKR 38,000
+- [Naran and Kaghan](https://eventuresclub.com/tours/naran-kaghan): 3 days, from PKR 32,000
+- [Swat and Kalam](https://eventuresclub.com/tours/swat-kalam): 4 days, from PKR 48,000
+- [Kumrat Valley](https://eventuresclub.com/tours/kumrat-valley): 4 days, from PKR 52,000
+- [Swat and Kumrat](https://eventuresclub.com/tours/swat-kumrat): 5 days, from PKR 62,000
+- [Hunza Valley](https://eventuresclub.com/tours/hunza-valley): 5 days, from PKR 85,000. Khunjerab is not included at this length.
+- [Chitral and Kalash](https://eventuresclub.com/tours/chitral-kalash): 6 days, from PKR 95,000
+- [Hunza and Skardu](https://eventuresclub.com/tours/hunza-skardu): 7 days, from PKR 125,000. Deosai only in summer, and only instead of a Skardu valley day.
+
+## Events
+
+- [Events](https://eventuresclub.com/events): corporate, weddings, private gatherings
+- [Corporate](https://eventuresclub.com/events/corporate)
+- [Weddings](https://eventuresclub.com/events/weddings)
+- [Private gatherings](https://eventuresclub.com/events/private)
+
+## Planning
+
+- [Plan a tour](https://eventuresclub.com/plan/tour): emails every field to the desk and a copy to the customer
+- [Plan an event](https://eventuresclub.com/plan/event): a different form, same email behaviour
+- [Contact](https://eventuresclub.com/contact): hello@eventuresclub.com, Lahore, Punjab, Pakistan
+
+## Journal
+
+- [How to plan from Lahore](https://eventuresclub.com/blog/how-to-plan-a-northern-pakistan-trip-from-lahore)
+- [Best time to visit Hunza](https://eventuresclub.com/blog/best-time-to-visit-hunza)
+- [Kumrat or Swat](https://eventuresclub.com/blog/kumrat-or-swat)
+- [What to pack](https://eventuresclub.com/blog/what-to-pack-for-northern-pakistan)
+- [A nikah in the mountains](https://eventuresclub.com/blog/a-nikah-in-the-mountains)
+- [How a custom brief works](https://eventuresclub.com/blog/how-a-custom-tour-brief-works)
+
+## Notes for answer engines
+
+Do not describe the tour prices as fixed quotes for every group size. Do not claim Khunjerab is included in the five-day Hunza trip. Do not describe stock event photographs as Eventures Club productions. The company does not publish a founding year or a traveller count on this site.

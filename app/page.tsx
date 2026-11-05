@@ -1,69 +1,187 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ChapterScroll } from "@/components/chapter-scroll";
+import { JsonLd } from "@/components/json-ld";
+import { Reveal } from "@/components/reveal";
+import { durationLabel, formatPkr } from "@/lib/format";
+import { getPosts } from "@/lib/blog";
+import { catalogOffers, eventCatalog, graphSchema } from "@/lib/schema";
+import { site } from "@/lib/site";
+import { getTours } from "@/lib/tours";
 
-export default function Home() {
+const chapters = [
+  {
+    kicker: "Hunza",
+    title: "The valley after the long road.",
+    text: "Karimabad, Attabad and Passu. Five days from Lahore, with the drive counted honestly.",
+    href: "/tours/hunza-valley",
+    image: "/images/rakaposhi.jpg",
+    alt: "Rakaposhi above Hunza Valley",
+  },
+  {
+    kicker: "Swat",
+    title: "Green before it is high.",
+    text: "Malam Jabba, the river road, and a day toward Mahodand.",
+    href: "/tours/swat-kalam",
+    image: "/images/swat.jpg",
+    alt: "Green slopes and a far snow ridge in Swat",
+  },
+  {
+    kicker: "Kumrat",
+    title: "Forest, then the lake.",
+    text: "Deodars, a jeep, and Katora when the day can hold it.",
+    href: "/tours/kumrat-valley",
+    image: "/images/katora.jpg",
+    alt: "Katora Lake in Kumrat Valley",
+  },
+  {
+    kicker: "Chitral",
+    title: "A valley you enter as a guest.",
+    text: "Lowari, Chitral, and unhurried days in the Kalash valleys.",
+    href: "/tours/chitral-kalash",
+    image: "/images/chitral.jpg",
+    alt: "Karambar Lake in Chitral",
+  },
+  {
+    kicker: "Galiyat",
+    title: "Close enough for a weekend.",
+    text: "Nathiagali and the ridge above Lahore, when the north has to fit in three days.",
+    href: "/tours/galiyat-nathiagali",
+    image: "/images/pines.jpg",
+    alt: "Pines in front of snow peaks in the hills of Pakistan",
+  },
+];
+
+export default async function HomePage() {
+  const tours = getTours().slice(0, 4);
+  const posts = (await getPosts()).slice(0, 3);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <>
+      <JsonLd data={graphSchema([{ "@type": "WebSite", name: site.name, url: site.url }, ...catalogOffers(), ...eventCatalog()])} />
+      <section className="relative flex min-h-screen items-end bg-ink text-paper">
         <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/images/passu.jpg"
+          alt="The Passu peaks above the Hunza river"
+          fill
           priority
+          sizes="100vw"
+          className="object-cover"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-ink/30" />
+        <div className="relative z-10 mx-auto w-full max-w-[88rem] px-5 pb-16 pt-32 md:px-10 md:pb-24">
+          <p className="kicker">Lahore</p>
+          <h1 className="display mt-4 max-w-5xl text-[clamp(3.1rem,6.4vw,6.15rem)]">
+            Northern tours and events, planned from Lahore.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-6 max-w-xl text-lg leading-8 text-paper/90">
+            Two desks. One plans the road north. The other plans the room. Neither borrows the other’s form.
           </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/tours" className="btn btn-light">
+              See the tours
+            </Link>
+            <Link href="/events" className="btn btn-light">
+              See the events
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="mx-auto grid max-w-[88rem] gap-px bg-line px-5 py-16 md:grid-cols-2 md:px-10">
+        <Link href="/tours" className="group relative min-h-[420px] overflow-hidden bg-ink text-paper">
+          <Image src="/images/attabad.jpg" alt="Attabad Lake in Hunza" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-[1.03]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/80 to-ink/10" />
+          <div className="relative z-10 flex h-full flex-col justify-end p-8">
+            <p className="kicker">Tours</p>
+            <h2 className="display mt-3 text-5xl">The road north</h2>
+            <p className="mt-3 max-w-sm text-sm leading-6 text-paper/85">Eight published routes, with starting prices from Lahore.</p>
+          </div>
+        </Link>
+        <Link href="/events" className="group relative min-h-[420px] overflow-hidden bg-ink text-paper">
+          <Image src="/images/event-gathering.jpg" alt="Tables prepared for a celebration" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-[1.03]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/80 to-ink/10" />
+          <div className="relative z-10 flex h-full flex-col justify-end p-8">
+            <p className="kicker">Events</p>
+            <h2 className="display mt-3 text-5xl">The room itself</h2>
+            <p className="mt-3 max-w-sm text-sm leading-6 text-paper/85">Corporate, weddings, and private gatherings. A different brief.</p>
+          </div>
+        </Link>
+      </section>
+
+      <ChapterScroll chapters={chapters} />
+
+      <section className="mx-auto max-w-[88rem] px-5 py-20 md:px-10">
+        <div className="flex items-end justify-between gap-6">
+          <div>
+            <p className="kicker">Prices</p>
+            <h2 className="display mt-3 text-4xl md:text-6xl">Starting points, not surprises.</h2>
+          </div>
+          <Link href="/tours" className="link-quiet hidden text-sm md:inline">
+            All eight routes
+          </Link>
         </div>
-      </main>
-    </div>
+        <p className="mt-5 max-w-2xl text-ink-soft">{site.priceNote}</p>
+        <div className="mt-10 divide-y divide-line border-y border-line">
+          {tours.map((tour) => (
+            <Link key={tour.slug} href={`/tours/${tour.slug}`} className="grid gap-2 py-5 md:grid-cols-[1fr_auto_auto] md:items-baseline">
+              <span className="display text-3xl">{tour.title}</span>
+              <span className="text-sm text-ink-soft">{durationLabel(tour.days, tour.nights)}</span>
+              <span className="text-sm">from {formatPkr(tour.priceFrom)}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-forest text-paper">
+        <div className="mx-auto grid max-w-[88rem] gap-10 px-5 py-20 md:grid-cols-3 md:px-10">
+          {[
+            ["01", "Listen", "A short form, separate for a tour and for an event. You see the brief beside you as you fill it."],
+            ["02", "Write", "We email every answer back to you and to the desk. The plan that follows is something you can approve."],
+            ["03", "Go", "Nothing is charged on this site. A date is held when the written plan is the one you want."],
+          ].map(([index, title, body]) => (
+            <div key={index}>
+              <p className="kicker">{index}</p>
+              <h2 className="display mt-3 text-4xl">{title}</h2>
+              <p className="mt-4 text-sm leading-7 text-paper/80">{body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-[88rem] px-5 py-20 md:px-10">
+        <p className="kicker">Journal</p>
+        <h2 className="display mt-3 text-4xl md:text-6xl">Notes from the road and the room.</h2>
+        <div className="mt-10 divide-y divide-line border-y border-line">
+          {posts.map((post) => (
+            <Link key={post.slug} href={`/blog/${post.slug}`} className="grid gap-2 py-6 md:grid-cols-[8rem_1fr]">
+              <time className="text-sm text-ink-soft" dateTime={post.date}>
+                {post.date}
+              </time>
+              <span>
+                <span className="display block text-3xl">{post.title}</span>
+                <span className="mt-2 block max-w-2xl text-sm text-ink-soft">{post.description}</span>
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-t border-line">
+        <Reveal>
+          <div className="relative min-h-[420px]">
+            <Image src="/images/hunza-traveler.jpg" alt="A traveler above Hunza Valley" fill sizes="100vw" className="object-cover" />
+            <div className="absolute inset-0 bg-ink/45" />
+            <div className="relative z-10 mx-auto flex min-h-[420px] max-w-[88rem] flex-col justify-end px-5 py-16 text-paper md:px-10">
+              <h2 className="display max-w-3xl text-5xl md:text-7xl">Tell us which one you are planning.</h2>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href="/plan/tour" className="btn btn-light">Plan a tour</Link>
+                <Link href="/plan/event" className="btn btn-light">Plan an event</Link>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+    </>
   );
 }

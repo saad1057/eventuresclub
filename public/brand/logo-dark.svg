@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 72" role="img" aria-label="Eventures Club">
+  <g transform="translate(4 4)">
+    
+    <g fill="none" stroke-linecap="square" stroke-linejoin="miter">
+      <path d="M5 34 L16 20 L26 28.5 L39 15 L59 32" stroke="#B56A3A" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M13 40 V57 M13 40 H28 M13 48.5 H24 M13 57 H28" stroke="#F4F0E8" stroke-width="2.15"/>
+      <path d="M51 41.5 C42.6 41.5 37 45.6 37 49.2 C37 52.8 42.6 56.9 51 56.9" stroke="#F4F0E8" stroke-width="2.15" stroke-linecap="round"/>
+    </g>
+  </g>
+  <text x="84" y="48" fill="#F4F0E8" font-family="Palatino Linotype, Palatino, Georgia, serif" font-size="40">eventures</text>
+  <text x="318" y="46" fill="#F4F0E8" font-family="Palatino Linotype, Palatino, Georgia, serif" font-size="14" letter-spacing="3">CLUB</text>
+</svg>
