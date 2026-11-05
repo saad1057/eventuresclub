@@ -14,15 +14,22 @@ export function organizationSchema() {
     description: site.description,
     address: {
       "@type": "PostalAddress",
+      streetAddress: "26 Tip Canal Garden",
       addressLocality: site.city,
       addressRegion: site.region,
       addressCountry: site.countryCode,
     },
+    location: site.offices.map((office) => ({
+      "@type": "Place",
+      name: office.name,
+      address: office.address,
+    })),
     areaServed: [
       { "@type": "City", name: "Lahore" },
+      { "@type": "City", name: "Islamabad" },
       { "@type": "AdministrativeArea", name: "Northern Pakistan" },
     ],
-    priceRange: "PKR 32,000–125,000 per person for published tours",
+    priceRange: "PKR 16,000–125,000",
   };
 }
 

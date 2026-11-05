@@ -13,7 +13,7 @@ export default function TermsPage() {
       <h1 className="display mt-3 text-5xl">Prices are a start. The plan is the agreement.</h1>
       <div className="prose-club mt-8">
         <p>
-          Figures on the tour pages are starting prices per person from Lahore for four people sharing a standard room and one vehicle. They are not a quote for a couple, a solo traveller, a premium hotel, or a date in peak autumn. The written plan we send after your brief is the price that counts.
+          Figures on Naran, Swat, Azad Kashmir, and Hunza with Skardu are the published rates: per person in a sharing room, and a separate couple charge for their own room. Pickup for those departures is Lahore or Islamabad. Other tour pages are starting prices per person from Lahore for four people sharing a standard room and one vehicle. None of them is a quote for a premium hotel or a peak-autumn date until the written plan says so. That plan is the price that counts.
         </p>
         <p>
           This website does not take payment. An advance, when one is needed to hold rooms or a vehicle, is requested on an invoice after you approve the plan. Until that approval, nothing is booked in your name.

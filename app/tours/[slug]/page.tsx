@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const tour = getTour(slug);
   if (!tour) return {};
   return {
-    title: `${tour.title} from Lahore`,
+    title: tour.couplePrice ? `${tour.title} from Lahore or Islamabad` : `${tour.title} from Lahore`,
     description: tour.summary,
     alternates: { canonical: `/tours/${tour.slug}` },
     openGraph: {
@@ -58,7 +58,11 @@ export default async function TourPage({ params }: Props) {
               {tour.region} · {durationLabel(tour.days, tour.nights)}
             </p>
             <h1 className="display mt-3 max-w-4xl text-5xl md:text-7xl">{tour.title}</h1>
-            <p className="mt-4 text-lg">From {formatPkr(tour.priceFrom)} per person</p>
+            <p className="mt-4 text-lg">
+              {tour.couplePrice
+                ? `${formatPkr(tour.priceFrom)} per person, sharing room`
+                : `From ${formatPkr(tour.priceFrom)} per person`}
+            </p>
           </div>
         </div>
       </div>
@@ -88,9 +92,20 @@ export default async function TourPage({ params }: Props) {
           </ul>
         </div>
         <aside className="h-fit border border-line p-5 md:sticky md:top-28">
-          <p className="kicker">From Lahore</p>
+          <p className="kicker">{tour.couplePrice ? "Sharing room" : "From Lahore"}</p>
           <p className="display mt-3 text-4xl">{formatPkr(tour.priceFrom)}</p>
-          <p className="mt-3 text-sm leading-6 text-ink-soft">{site.priceNote}</p>
+          {tour.couplePrice ? <p className="mt-1 text-sm text-ink-soft">per person</p> : null}
+          {tour.couplePrice ? (
+            <>
+              <p className="kicker mt-6">Couple, separate room</p>
+              <p className="display mt-3 text-4xl">{formatPkr(tour.couplePrice)}</p>
+            </>
+          ) : null}
+          <p className="mt-3 text-sm leading-6 text-ink-soft">
+            {tour.couplePrice
+              ? "Pickup from Lahore or Islamabad. The sharing rate is per person. The couple rate is for a separate room."
+              : site.priceNote}
+          </p>
           <Link
             href={`/plan/tour?destination=${tour.destinationIds[0]}&tour=${tour.slug}`}
             className="btn btn-solid mt-6 w-full"

@@ -21,7 +21,7 @@ const chapters = [
   {
     kicker: "Swat",
     title: "Green before it is high.",
-    text: "Malam Jabba, the river road, and a day toward Mahodand.",
+    text: "The river road into the valley, and home on the third day.",
     href: "/tours/swat-kalam",
     image: "/images/swat.jpg",
     alt: "Green slopes and a far snow ridge in Swat",
@@ -53,7 +53,9 @@ const chapters = [
 ];
 
 export default async function HomePage() {
-  const tours = getTours().slice(0, 4);
+  const tours = ["naran-kaghan", "swat-kalam", "kashmir", "hunza-skardu"]
+    .map((slug) => getTours().find((tour) => tour.slug === slug))
+    .filter((tour) => tour !== undefined);
   const posts = (await getPosts()).slice(0, 3);
 
   return (
@@ -90,21 +92,21 @@ export default async function HomePage() {
 
       <section className="mx-auto grid max-w-[88rem] gap-px bg-line px-5 py-16 md:grid-cols-2 md:px-10">
         <Link href="/tours" className="group relative min-h-[420px] overflow-hidden bg-ink text-paper">
-          <Image src="/images/attabad.jpg" alt="Attabad Lake in Hunza" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-[1.03]" />
+          <Image src="/images/attabad.jpg" alt="Attabad Lake in Hunza" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover transition duration-700 ease-out group-hover:scale-[1.04]" />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/80 to-ink/10" />
           <div className="relative z-10 flex h-full flex-col justify-end p-8">
             <p className="kicker">Tours</p>
             <h2 className="display mt-3 text-5xl">The road north</h2>
-            <p className="mt-3 max-w-sm text-sm leading-6 text-paper/85">Eight published routes, with starting prices from Lahore.</p>
+            <p className="mt-3 max-w-sm text-sm leading-6 text-paper/85">Nine published routes, with prices you can read before you write.</p>
           </div>
         </Link>
         <Link href="/events" className="group relative min-h-[420px] overflow-hidden bg-ink text-paper">
-          <Image src="/images/event-gathering.jpg" alt="Tables prepared for a celebration" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-[1.03]" />
+          <Image src="/images/event-gathering.jpg" alt="Tables prepared for a celebration" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover transition duration-700 ease-out group-hover:scale-[1.04]" />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/80 to-ink/10" />
           <div className="relative z-10 flex h-full flex-col justify-end p-8">
             <p className="kicker">Events</p>
             <h2 className="display mt-3 text-5xl">The room itself</h2>
-            <p className="mt-3 max-w-sm text-sm leading-6 text-paper/85">Corporate, weddings, and private gatherings. A different brief.</p>
+            <p className="mt-3 max-w-sm text-sm leading-6 text-paper/85">Weddings, birthdays, corporate, custom, and government office events.</p>
           </div>
         </Link>
       </section>
@@ -118,16 +120,25 @@ export default async function HomePage() {
             <h2 className="display mt-3 text-4xl md:text-6xl">Starting points, not surprises.</h2>
           </div>
           <Link href="/tours" className="link-quiet hidden text-sm md:inline">
-            All eight routes
+            All the routes
           </Link>
         </div>
         <p className="mt-5 max-w-2xl text-ink-soft">{site.priceNote}</p>
         <div className="mt-10 divide-y divide-line border-y border-line">
           {tours.map((tour) => (
-            <Link key={tour.slug} href={`/tours/${tour.slug}`} className="grid gap-2 py-5 md:grid-cols-[1fr_auto_auto] md:items-baseline">
+            <Link key={tour.slug} href={`/tours/${tour.slug}`} className="list-row grid gap-2 px-3 py-5 md:grid-cols-[1fr_auto_auto] md:items-baseline">
               <span className="display text-3xl">{tour.title}</span>
               <span className="text-sm text-ink-soft">{durationLabel(tour.days, tour.nights)}</span>
-              <span className="text-sm">from {formatPkr(tour.priceFrom)}</span>
+              <span className="text-sm">
+                {tour.couplePrice ? (
+                  <>
+                    {formatPkr(tour.priceFrom)} sharing
+                    <span className="mt-1 block text-ink-soft">{formatPkr(tour.couplePrice)} couple</span>
+                  </>
+                ) : (
+                  <>from {formatPkr(tour.priceFrom)}</>
+                )}
+              </span>
             </Link>
           ))}
         </div>
@@ -154,7 +165,7 @@ export default async function HomePage() {
         <h2 className="display mt-3 text-4xl md:text-6xl">Notes from the road and the room.</h2>
         <div className="mt-10 divide-y divide-line border-y border-line">
           {posts.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`} className="grid gap-2 py-6 md:grid-cols-[8rem_1fr]">
+            <Link key={post.slug} href={`/blog/${post.slug}`} className="list-row grid gap-2 px-3 py-6 md:grid-cols-[8rem_1fr]">
               <time className="text-sm text-ink-soft" dateTime={post.date}>
                 {post.date}
               </time>

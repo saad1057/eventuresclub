@@ -3,10 +3,11 @@ import { destinationLabel, type DestinationId } from "@/lib/options";
 export type Tour = {
   slug: string;
   title: string;
-  region: "Galiyat" | "Khyber Pakhtunkhwa" | "Gilgit-Baltistan";
+  region: "Galiyat" | "Khyber Pakhtunkhwa" | "Gilgit-Baltistan" | "Azad Kashmir";
   days: number;
   nights: number;
   priceFrom: number;
+  couplePrice?: number;
   season: string;
   altitude: string;
   destinationIds: DestinationId[];
@@ -87,14 +88,15 @@ export const tours: Tour[] = [
     region: "Khyber Pakhtunkhwa",
     days: 3,
     nights: 2,
-    priceFrom: 32000,
+    priceFrom: 16500,
+    couplePrice: 43000,
     season: "Late May to September, when Saif-ul-Malook and Babusar are usually open",
     altitude: "Naran is about 2,400 metres. The jeep to Saif-ul-Malook climbs toward 3,200 metres.",
     destinationIds: ["naran"],
     summary:
-      "Three days from Lahore up the Kunhar to Naran, with the dawn jeep to Lake Saif-ul-Malook and a look toward Lulusar or Babusar if the pass is open. A fast weekend, from PKR 32,000 a person for a group of four in a standard hotel.",
-    lede: "Naran in three days from Lahore is a sprint, and we describe it that way. Two of the days are mostly road. The middle day is the lake. People who want a softer pace should add a night. The published price is for the tight version, which is what most Lahore weekends actually are.",
-    road: "You leave before dawn. Balakot to Kaghan is slow in July and August, and the jeep track to the lake has its own queue at sunrise. We book the jeep for the group rather than leaving you to negotiate it in the dark.",
+      "Three days to Naran and Kaghan, with pickup in Lahore or Islamabad. PKR 16,500 per person in a sharing room, or PKR 43,000 for a couple in a separate room. The middle day is the lake. The other two are the road.",
+    lede: "Naran in three days is a sprint, and we describe it that way. Two of the days are mostly road. The middle day is the lake. People who want a softer pace should add a night. Pickup is Lahore or Islamabad. The published rates are the group seat: PKR 16,500 a person sharing, or PKR 43,000 for a couple in a separate room.",
+    road: "You leave before dawn. Balakot to Kaghan is slow in July and August, and the track to the lake has its own queue at sunrise. The group rate covers the seat and the hotel. The jeep up to Saif-ul-Malook is added only when the written plan names it.",
     image: "/images/saif.jpg",
     imageAlt: "Lake Saif-ul-Malook with snow on the surrounding peaks",
     gallery: [
@@ -105,20 +107,25 @@ export const tours: Tour[] = [
     highlights: ["Saif-ul-Malook at first light", "Lulusar if the day still has hours", "Babusar viewpoint only when the road is open"],
     itinerary: [
       {
-        title: "Day 1 — Lahore to Naran",
-        body: "A long day up the Kunhar. Breakfast is a roadside stop, not a hotel buffet. If the valley is moving slowly we sleep in Kaghan and finish the last stretch in the morning rather than driving a tired group into Naran after dark.",
+        title: "Day 1 — Pickup to Naran",
+        body: "A long day up the Kunhar from Lahore or Islamabad. Breakfast is a roadside stop, not a hotel buffet. If the valley is moving slowly we sleep in Kaghan and finish the last stretch in the morning rather than driving a tired group into Naran after dark.",
       },
       {
         title: "Day 2 — The lake",
-        body: "Jeep to Saif-ul-Malook before the track fills. Time at the water, then back to the valley. If everyone still has legs and the road is clear, the afternoon goes toward Lulusar. If not, the afternoon is rest. Both are a successful day.",
+        body: "The day is for Saif-ul-Malook. The jeep up the track is arranged when the written plan includes it. Time at the water, then back to the valley. If everyone still has legs and the road is clear, the afternoon goes toward Lulusar. If not, the afternoon is rest. Both are a successful day.",
       },
       {
         title: "Day 3 — The pass, or the road home",
-        body: "Babusar Top is a gift of the season, not a promise of the brochure. When it is open and the group wants it, we go up and turn around with enough daylight to reach Lahore at night. When it is shut, we start home earlier and do not invent a substitute spectacle.",
+        body: "Babusar Top is a gift of the season, not a promise of the brochure. When it is open and the group wants it, we go up and turn around with enough daylight to reach the pickup city at night. When it is shut, we start home earlier and do not invent a substitute spectacle.",
       },
     ],
-    included: [...baseIncluded, "One jeep for the group to Saif-ul-Malook"],
-    excluded: baseExcluded,
+    included: [
+      "Pickup from Lahore or Islamabad",
+      "Seat on the group vehicle",
+      "Hotel on a sharing basis, or a separate room at the couple rate",
+      "Tolls, parking and the driver's stay",
+    ],
+    excluded: [...baseExcluded, "The jeep to Saif-ul-Malook, unless the written plan names it"],
     goodToKnow: [
       "June to August is busy. September is kinder if your dates can move.",
       "The lake is cold even in July. A layer in the jeep bag matters more than another shirt.",
@@ -128,16 +135,17 @@ export const tours: Tour[] = [
     slug: "swat-kalam",
     title: "Swat and Kalam",
     region: "Khyber Pakhtunkhwa",
-    days: 4,
-    nights: 3,
-    priceFrom: 48000,
+    days: 3,
+    nights: 2,
+    priceFrom: 16000,
+    couplePrice: 43500,
     season: "April to October",
     altitude: "Mingora is low. Kalam sits near 2,000 metres, and the Mahodand track climbs past that.",
     destinationIds: ["swat"],
     summary:
-      "Four days from Lahore into Swat: Malam Jabba, the river road through Bahrain, and Kalam with a jeep toward Mahodand. Forest, water, and one proper mountain day. From PKR 48,000 a person, group of four, standard stay.",
-    lede: "Swat is the green trip. You are in orchards before you are in pine, and the river stays beside the road for most of the way to Kalam. Four days is enough to sleep twice in the upper valley and still see Malam Jabba without turning the drive into a blur.",
-    road: "The road from Mingora to Kalam is scenic and narrow. We do not stack Malam Jabba, Kalam and Mahodand into one day. That version exists on other sites. It is how people come home tired of a place they barely entered.",
+      "Three days in Swat, with pickup in Lahore or Islamabad. PKR 16,000 per person in a sharing room, or PKR 43,500 for a couple in a separate room. The valley and the river road are the trip. Mahodand is only added when a longer plan is written.",
+    lede: "Swat in three days is a green weekend, not a tour of every lake above Kalam. You reach the valley, sleep there, and come home. Orchards come before pine, and the river stays beside the road. A couple who want their own room take the couple rate. Everyone else is on a sharing basis.",
+    road: "The road from Mingora toward Kalam is scenic and narrow. Three days does not fit Malam Jabba, Kalam and Mahodand without turning the middle day into a blur. We keep the published trip in the valley and name anything extra in the written plan.",
     image: "/images/swat.jpg",
     imageAlt: "Green slopes and a high ridge in Swat Valley",
     gallery: [
@@ -145,30 +153,80 @@ export const tours: Tour[] = [
       { src: "/images/pine-road.jpg", alt: "A pine road of the kind that climbs out of the Swat valley" },
       { src: "/images/hunza-traveler.jpg", alt: "A traveler paused at a high viewpoint" },
     ],
-    highlights: ["Malam Jabba", "The Bahrain to Kalam river road", "Mahodand by jeep"],
+    highlights: ["The Swat river road", "A night in the valley", "Malam Jabba only if the day can hold it"],
     itinerary: [
       {
-        title: "Day 1 — Lahore to Malam Jabba",
-        body: "Across the plains and into Swat by afternoon. Malam Jabba is the first night's landscape: a chairlift if you want it, a walk if you do not. The hotel is chosen for sleep and a view, not for a lobby.",
+        title: "Day 1 — Pickup to Swat",
+        body: "The vehicle collects the group in Lahore or Islamabad and crosses into Swat. The night is in the valley, not back on the motorway. Malam Jabba is a stop only when the arrival still has daylight.",
       },
       {
-        title: "Day 2 — Up the river to Kalam",
-        body: "Madyan, Bahrain, and the narrowing valley. We stop where the water is worth getting out for, and we reach Kalam with daylight left. The town itself is a base. The point is the valley above it.",
+        title: "Day 2 — The river road",
+        body: "Up through Madyan and Bahrain as far as the day should go. Kalam if the road and the group allow it. This is the one full day in the valley. We do not add Mahodand on top of it and call the result rest.",
       },
       {
-        title: "Day 3 — Mahodand",
-        body: "A jeep from Kalam toward Mahodand and the Ushu forest. The track is the day. If it is closed by weather or a local halt, we say so and walk the forest roads that are still open rather than sitting in a queue.",
-      },
-      {
-        title: "Day 4 — Return to Lahore",
-        body: "Down the same river in the morning light, then the long run home. A short stop in Fizagat or Mingora only if someone needs it. Lahore by night.",
+        title: "Day 3 — Home",
+        body: "Down the same river in the morning, then the long run back to the pickup city. Lahore or Islamabad by night.",
       },
     ],
-    included: [...baseIncluded, "Jeep from Kalam toward Mahodand for the group"],
-    excluded: [...baseExcluded, "Malam Jabba chairlift tickets"],
+    included: [
+      "Pickup from Lahore or Islamabad",
+      "Seat on the group vehicle",
+      "Hotel on a sharing basis, or a separate room at the couple rate",
+      "Tolls, parking and the driver's stay",
+    ],
+    excluded: [...baseExcluded, "Malam Jabba chairlift tickets", "A Mahodand jeep, which belongs on a longer plan"],
     goodToKnow: [
       "July can be wet. The valley is still beautiful, and the jeep track is the first thing to close.",
       "Ask for a ground-floor room if anyone in the group struggles with hillside stairs.",
+    ],
+  },
+  {
+    slug: "kashmir",
+    title: "Azad Kashmir",
+    region: "Azad Kashmir",
+    days: 3,
+    nights: 2,
+    priceFrom: 17500,
+    couplePrice: 46500,
+    season: "March to November, with a quieter winter if the group wants snow and has agreed to the cold",
+    altitude: "Muzaffarabad sits in a valley. The Neelum road climbs, and Keran and Sharda are higher and colder than the city you left.",
+    destinationIds: ["kashmir"],
+    summary:
+      "Three days in Azad Kashmir, with pickup in Lahore or Islamabad. PKR 17,500 per person in a sharing room, or PKR 46,500 for a couple in a separate room. The Neelum valley is the point. A third night is a different plan.",
+    lede: "Kashmir in three days from the plains is one long road, one day on the Neelum, and the road home. We name it that way. The couple rate is for a separate room. The per-person rate is a sharing room on the same departure.",
+    road: "The approach is through Murree or the expressway toward Muzaffarabad, then up the Neelum. Fridays stack the hill road. We leave early from Lahore or Islamabad and do not promise Keran and Sharda and a waterfall walk in the same afternoon.",
+    image: "/images/pines.jpg",
+    imageAlt: "Pines and snow peaks in the hills of Pakistan",
+    gallery: [
+      { src: "/images/pine-road.jpg", alt: "A pine-lined mountain road in the hills of Pakistan" },
+      { src: "/images/murree.jpg", alt: "A river and snow-dusted hills on the approach north" },
+      { src: "/images/nathiagali.jpg", alt: "A walker on a snowy slope in the hills above the plains" },
+    ],
+    highlights: ["The Neelum road", "A night in the valley", "Keran or Sharda when the day can hold one of them"],
+    itinerary: [
+      {
+        title: "Day 1 — Pickup to the valley",
+        body: "Collection in Lahore or Islamabad, then the climb toward Muzaffarabad and the Neelum. The night is in the valley. We do not drive the last hour after dark if the road has slowed.",
+      },
+      {
+        title: "Day 2 — Along the Neelum",
+        body: "One stretch of the river, chosen by season and how far the group should go. Keran or Sharda, not both as a checklist. Time at the water, then back to the room while there is still light.",
+      },
+      {
+        title: "Day 3 — Home",
+        body: "Down to the pickup city. Lahore or Islamabad by night. If someone needs a later drop, it is written into the plan before the day starts.",
+      },
+    ],
+    included: [
+      "Pickup from Lahore or Islamabad",
+      "Seat on the group vehicle",
+      "Hotel on a sharing basis, or a separate room at the couple rate",
+      "Tolls, parking and the driver's stay",
+    ],
+    excluded: baseExcluded,
+    goodToKnow: [
+      "The photograph on this page is the character of these hills, not a claim that the frame was shot in Neelum.",
+      "Winter dates need a real coat. The valley is colder than Lahore on the same morning.",
     ],
   },
   {
@@ -379,15 +437,16 @@ export const tours: Tour[] = [
     slug: "hunza-skardu",
     title: "Hunza and Skardu",
     region: "Gilgit-Baltistan",
-    days: 7,
-    nights: 6,
-    priceFrom: 125000,
+    days: 8,
+    nights: 7,
+    priceFrom: 39500,
+    couplePrice: 98500,
     season: "May to September. Deosai is a summer road, roughly June to September.",
     altitude: "Hunza and Skardu towns sit near 2,200–2,500 metres. Deosai, when it is open, is around 4,000 metres.",
     destinationIds: ["hunza", "skardu"],
     summary:
-      "Seven days linking Hunza with the road to Skardu: forts and Attabad, then the Indus valley, Shigar or the edge of Deosai when the season opens it. The long northern line from Lahore, from PKR 125,000 a person for four.",
-    lede: "This is the trip for people who want both valleys and understand that a week from Lahore is still mostly road. You get one full day in Hunza and one full day in Skardu. Deosai is included when the plateau is open and the group is fit for the height. It is not promised in May.",
+      "Eight days to Hunza and Skardu, with pickup in Lahore or Islamabad. PKR 39,500 per person in a sharing room, or PKR 98,500 for a couple in a separate room. One full day in each valley. Deosai only when the season and the written plan allow it.",
+    lede: "Eight days is the published Hunza and Skardu departure. Two of those days are the road out, two are the road between and the road home, and the valleys get the days in the middle. The per-person rate is a sharing room. A couple who want their own room take the couple rate. This is a group seat, not a private vehicle priced for four.",
     road: "Hunza to Skardu via Gilgit is a full driving day along the Indus. We keep it whole. Splitting the sights of both valleys onto that day is how a week becomes a catalogue of windows. The nights on either end of the trip are on the Karakoram Highway, as they are on the shorter Hunza route.",
     image: "/images/passu.jpg",
     imageAlt: "Passu cones above the Hunza river",
@@ -408,7 +467,7 @@ export const tours: Tour[] = [
       },
       {
         title: "Day 3 — Hunza properly",
-        body: "Forts, the view above Karimabad, Attabad. Passu if the group would like the cones more than a second museum room. One boat, not a watersports hour.",
+        body: "Forts, the view above Karimabad, Attabad. Passu if the group would like the cones more than a second museum room. A boat only if the written plan includes it.",
       },
       {
         title: "Day 4 — Hunza to Skardu",
@@ -419,19 +478,28 @@ export const tours: Tour[] = [
         body: "Shigar and the fort, or Upper Kachura, depending on what the group asked for in the brief. Deosai replaces this day when the road is open and everyone is comfortable at that height. We do not do Deosai as a rushed add-on after a fort tour.",
       },
       {
-        title: "Day 6 — South",
+        title: "Day 6 — A second morning in Skardu",
+        body: "The extra day is what makes eight days different from a compressed week. Upper Kachura, the fort, or simply a morning that is not a drive. Deosai still replaces a valley day only when the road is open and the group is fit for the height. It is not folded into this morning as an afterthought.",
+      },
+      {
+        title: "Day 7 — South",
         body: "Back toward a highway night. The cold desert is a stop if it sits on the way and the light is good, not a reason to leave Skardu at noon and call it a sightseeing day.",
       },
       {
-        title: "Day 7 — Lahore",
-        body: "Home by night. The week is full. If you want Deosai and a slow Hunza, ask for nine days and we will price that instead of compressing this one.",
+        title: "Day 8 — Lahore or Islamabad",
+        body: "Home by night, to the city where the group was picked up. If you want Deosai and a slow Hunza as well as both towns, ask for more days. We will price that instead of compressing this one.",
       },
     ],
-    included: [...baseIncluded, "Attabad boat", "Deosai transport when that day replaces the Skardu valley day"],
-    excluded: baseExcluded,
+    included: [
+      "Pickup from Lahore or Islamabad",
+      "Seat on the group vehicle",
+      "Hotel on a sharing basis, or a separate room at the couple rate",
+      "Tolls, parking and the driver's stay",
+    ],
+    excluded: [...baseExcluded, "Attabad boat and Deosai transport, unless the written plan names them"],
     goodToKnow: [
       "At Deosai the air is thin. Tell us about heart or breathing conditions before we put it on the plan.",
-      "Seven days is the minimum that still feels like both places. Nine is kinder.",
+      "Eight days still spends a lot of time on the highway. Say so to anyone who thinks both valleys means a week of walking.",
     ],
   },
 ];

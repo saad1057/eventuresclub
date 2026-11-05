@@ -47,7 +47,7 @@ export function TourPlanner() {
       ["Season", season],
       ["Dates", dates || "Open"],
       ["Group", String(groupSize)],
-      ["From", departure],
+      ["Pickup", departure],
       ["Length", length],
       ["Comfort", comfort],
       ["Budget", budget],
@@ -181,7 +181,7 @@ export function TourPlanner() {
                 />
               </label>
               <fieldset>
-                <legend className="field-label">Leaving from</legend>
+                <legend className="field-label">Pickup</legend>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {departures.map((item) => (
                     <button key={item} type="button" className="choice" aria-pressed={departure === item} onClick={() => setDeparture(item)}>

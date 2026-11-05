@@ -8,7 +8,7 @@ import { getTours } from "@/lib/tours";
 export const metadata: Metadata = {
   title: "Northern Pakistan tours from Lahore",
   description:
-    "Published northern routes from Lahore: Nathiagali, Naran, Swat, Kumrat, Hunza, Chitral and Skardu, with starting prices per person for a group of four.",
+    "Published northern routes with pickup in Lahore or Islamabad: Naran, Swat, Azad Kashmir, Hunza and Skardu, plus Nathiagali, Kumrat and Chitral. Sharing and couple rates are shown where they are fixed.",
   alternates: { canonical: "/tours" },
 };
 
@@ -27,7 +27,7 @@ export default function ToursPage() {
       <p className="kicker">Tours</p>
       <h1 className="display mt-3 max-w-4xl text-5xl md:text-7xl">Routes with a price, and a road that is allowed to take time.</h1>
       <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-soft">
-        These are fixed shapes you can read before you write to us. Every figure is a starting price per person from Lahore, for four people in a standard room. A private date, a different city, or a quieter hotel is a new quote, not a hidden fee on the day.
+        These are fixed shapes you can read before you write to us. Naran, Swat, Azad Kashmir, and Hunza with Skardu show a per-person sharing rate and a couple rate for a separate room. Pickup is Lahore or Islamabad. The other routes are starting prices for four people sharing a standard room, and a different hotel or a private date is a new quote.
       </p>
       <p className="mt-4 max-w-2xl text-sm leading-7 text-ink-soft">{site.priceNote}</p>
       <div className="mt-12">

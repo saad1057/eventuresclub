@@ -6,6 +6,7 @@ export const destinations = [
   { id: "hunza", label: "Hunza" },
   { id: "skardu", label: "Skardu" },
   { id: "chitral", label: "Chitral and Kalash" },
+  { id: "kashmir", label: "Azad Kashmir" },
 ] as const;
 
 export const seasons = [
@@ -24,7 +25,7 @@ export const tripLengths = [
   "Not sure yet",
 ] as const;
 
-export const departures = ["Lahore", "Islamabad", "Karachi", "Other"] as const;
+export const departures = ["Lahore", "Islamabad"] as const;
 
 export const comforts = ["Simple and local", "Standard", "Premium"] as const;
 
@@ -37,8 +38,11 @@ export const tourBudgets = [
 ] as const;
 
 export const eventTypes = [
-  "Corporate",
   "Wedding",
+  "Birthday",
+  "Corporate",
+  "Custom event",
+  "Government office",
   "Private gathering",
   "Not sure yet",
 ] as const;

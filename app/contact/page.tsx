@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Write to Eventures Club in Lahore. The note is emailed to the desk with every field you enter, and a copy is emailed back to you.",
+    "Write to Eventures Club. The head office is in Lahore and the branch is in Islamabad. The note is emailed to the desk with every field you enter, and a copy is emailed back to you.",
   alternates: { canonical: "/contact" },
 };
 
@@ -39,10 +39,20 @@ export default function ContactPage() {
             </dd>
           </div>
           <div>
-            <dt className="text-ink-soft">Where</dt>
-            <dd>
-              {site.city}, {site.region}, {site.country}
+            <dt className="text-ink-soft">Offices</dt>
+            <dd className="mt-2 space-y-3">
+              {site.offices.map((office) => (
+                <p key={office.name}>
+                  <span className="text-ink-soft">{office.name}</span>
+                  <br />
+                  {office.address}
+                </p>
+              ))}
             </dd>
+          </div>
+          <div>
+            <dt className="text-ink-soft">Pickup</dt>
+            <dd>{site.pickups.join(" and ")}</dd>
           </div>
         </dl>
       </div>

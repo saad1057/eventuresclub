@@ -7,7 +7,7 @@ import { breadcrumbSchema, graphSchema } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Plan an event",
   description:
-    "Plan a corporate event, wedding or private gathering with Eventures Club in Lahore. The form emails every field you enter to the desk and a copy to you.",
+    "Plan a wedding, birthday, corporate event, custom event, or government office event with Eventures Club. The form emails every field you enter to the desk and a copy to you.",
   alternates: { canonical: "/plan/event" },
 };
 
@@ -22,7 +22,7 @@ export default function PlanEventPage() {
           ]),
         ])}
       />
-      <p className="kicker">Custom event</p>
+      <p className="kicker">Event brief</p>
       <h1 className="display mt-3 max-w-3xl text-5xl md:text-7xl">Describe the hour. We will describe the room.</h1>
       <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-soft">
         This planner is only for gatherings. Tours have their own. You will get an email with every answer, and so will we. The next note from the desk is a direction, not an invoice.

@@ -6,7 +6,7 @@ import { useState } from "react";
 import { durationLabel, formatPkr } from "@/lib/format";
 import type { Tour } from "@/lib/tours";
 
-const filters = ["All", "Galiyat", "Khyber Pakhtunkhwa", "Gilgit-Baltistan"] as const;
+const filters = ["All", "Galiyat", "Khyber Pakhtunkhwa", "Gilgit-Baltistan", "Azad Kashmir"] as const;
 
 export function TourCatalog({ tours }: { tours: Tour[] }) {
   const [region, setRegion] = useState<(typeof filters)[number]>("All");
@@ -29,14 +29,14 @@ export function TourCatalog({ tours }: { tours: Tour[] }) {
       </div>
       <div className="mt-10 divide-y divide-line border-y border-line">
         {visible.map((tour) => (
-          <article key={tour.slug} className="grid gap-6 py-8 md:grid-cols-[280px_1fr] md:items-center">
+          <article key={tour.slug} className="group grid gap-6 py-8 md:grid-cols-[280px_1fr] md:items-center">
             <div className="relative aspect-[4/3] overflow-hidden bg-paper-deep">
               <Image
                 src={tour.image}
                 alt={tour.imageAlt}
                 fill
                 sizes="(min-width: 768px) 280px, 100vw"
-                className="object-cover"
+                className="object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
               />
             </div>
             <div>
@@ -49,7 +49,16 @@ export function TourCatalog({ tours }: { tours: Tour[] }) {
               <p className="mt-4 max-w-2xl text-ink-soft">{tour.summary}</p>
               <div className="mt-5 flex flex-wrap items-center gap-6">
                 <p className="text-sm">
-                  From <span className="text-base">{formatPkr(tour.priceFrom)}</span>
+                  {tour.couplePrice ? (
+                    <>
+                      {formatPkr(tour.priceFrom)} sharing
+                      <span className="mt-1 block text-ink-soft">{formatPkr(tour.couplePrice)} couple, separate room</span>
+                    </>
+                  ) : (
+                    <>
+                      From <span className="text-base">{formatPkr(tour.priceFrom)}</span>
+                    </>
+                  )}
                 </p>
                 <Link href={`/tours/${tour.slug}`} className="link-quiet text-sm">
                   Read the days

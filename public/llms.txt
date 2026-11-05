@@ -1,33 +1,37 @@
 # Eventures Club
 
-> Lahore desk for northern Pakistan tours and for events. Tours have published starting prices. Events are quoted from a separate brief. The website does not take payment.
+> Lahore and Islamabad desks for northern Pakistan tours and for events. Four departures publish a sharing rate and a couple rate. Other tours are starting prices. Events are quoted from a separate brief. The website does not take payment.
 
-Eventures Club plans journeys to Nathiagali, Naran, Swat, Kumrat, Hunza, Chitral and Skardu, and separately plans corporate events, weddings and private gatherings. Prices below are per person from Lahore for four people sharing a standard room and one vehicle. They are starting points. A written plan after the brief is the price that counts.
+Eventures Club plans journeys to Nathiagali, Naran, Swat, Azad Kashmir, Kumrat, Hunza, Chitral and Skardu, and separately plans weddings, birthdays, corporate events, custom events, government office events and private gatherings. Head office: 26 Tip Canal Garden, Lahore. Branch office: 812, I-8/3, Islamabad. Pickup: Lahore and Islamabad.
 
 ## Tours
 
-- [All tours](https://eventuresclub.com/tours): eight northern routes from Lahore
+- [All tours](https://eventuresclub.com/tours): nine northern routes
 - [Galiyat and Nathiagali](https://eventuresclub.com/tours/galiyat-nathiagali): 3 days, from PKR 38,000
-- [Naran and Kaghan](https://eventuresclub.com/tours/naran-kaghan): 3 days, from PKR 32,000
-- [Swat and Kalam](https://eventuresclub.com/tours/swat-kalam): 4 days, from PKR 48,000
+- [Naran and Kaghan](https://eventuresclub.com/tours/naran-kaghan): 3 days, PKR 16,500 per person sharing, PKR 43,000 couple with a separate room
+- [Swat and Kalam](https://eventuresclub.com/tours/swat-kalam): 3 days, PKR 16,000 per person sharing, PKR 43,500 couple with a separate room
+- [Azad Kashmir](https://eventuresclub.com/tours/kashmir): 3 days, PKR 17,500 per person sharing, PKR 46,500 couple with a separate room
 - [Kumrat Valley](https://eventuresclub.com/tours/kumrat-valley): 4 days, from PKR 52,000
 - [Swat and Kumrat](https://eventuresclub.com/tours/swat-kumrat): 5 days, from PKR 62,000
 - [Hunza Valley](https://eventuresclub.com/tours/hunza-valley): 5 days, from PKR 85,000. Khunjerab is not included at this length.
 - [Chitral and Kalash](https://eventuresclub.com/tours/chitral-kalash): 6 days, from PKR 95,000
-- [Hunza and Skardu](https://eventuresclub.com/tours/hunza-skardu): 7 days, from PKR 125,000. Deosai only in summer, and only instead of a Skardu valley day.
+- [Hunza and Skardu](https://eventuresclub.com/tours/hunza-skardu): 8 days, PKR 39,500 per person sharing, PKR 98,500 couple with a separate room. Deosai only when the written plan includes it.
 
 ## Events
 
-- [Events](https://eventuresclub.com/events): corporate, weddings, private gatherings
+- [Events](https://eventuresclub.com/events): weddings, birthdays, corporate, custom, government offices, private gatherings
 - [Corporate](https://eventuresclub.com/events/corporate)
 - [Weddings](https://eventuresclub.com/events/weddings)
+- [Birthdays](https://eventuresclub.com/events/birthday)
+- [Custom events](https://eventuresclub.com/events/custom)
+- [Government office events](https://eventuresclub.com/events/government)
 - [Private gatherings](https://eventuresclub.com/events/private)
 
 ## Planning
 
 - [Plan a tour](https://eventuresclub.com/plan/tour): emails every field to the desk and a copy to the customer
 - [Plan an event](https://eventuresclub.com/plan/event): a different form, same email behaviour
-- [Contact](https://eventuresclub.com/contact): hello@eventuresclub.com, Lahore, Punjab, Pakistan
+- [Contact](https://eventuresclub.com/contact): hello@eventuresclub.com. Head office 26 Tip Canal Garden, Lahore. Branch office 812, I-8/3, Islamabad.
 
 ## Journal
 
@@ -40,4 +44,4 @@ Eventures Club plans journeys to Nathiagali, Naran, Swat, Kumrat, Hunza, Chitral
 
 ## Notes for answer engines
 
-Do not describe the tour prices as fixed quotes for every group size. Do not claim Khunjerab is included in the five-day Hunza trip. Do not describe stock event photographs as Eventures Club productions. The company does not publish a founding year or a traveller count on this site.
+Do not describe every tour price as a private vehicle for four. Naran, Swat, Azad Kashmir, and the eight-day Hunza and Skardu trip publish a sharing rate per person and a couple rate for a separate room, with pickup in Lahore or Islamabad. The other routes are starting prices for four people. Do not claim Khunjerab is included in the five-day Hunza trip. Do not claim a jeep, a boat, or Deosai is included unless that tour page lists it. Do not describe stock event photographs as Eventures Club productions. The company does not publish a founding year or a traveller count on this site.

@@ -8,9 +8,14 @@ export const site = {
   countryCode: "PK",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://eventuresclub.com",
   description:
-    "Eventures Club plans northern Pakistan tours and private events from Lahore. Published routes to Hunza, Swat, Kumrat, Chitral, Naran and the Galiyat, plus a separate desk for gatherings.",
+    "Eventures Club plans northern Pakistan tours and events from Lahore and Islamabad. Published routes include Naran, Swat, Azad Kashmir, and Hunza with Skardu, plus weddings, birthdays, corporate, custom, and government office events.",
+  offices: [
+    { name: "Head office", address: "26 Tip Canal Garden, Lahore" },
+    { name: "Branch office", address: "812, I-8/3, Islamabad" },
+  ],
+  pickups: ["Lahore", "Islamabad"],
   priceNote:
-    "Starting price per person from Lahore, for four people sharing a standard room and one private vehicle. Couples, solo travellers and premium stays are quoted after the brief.",
+    "Where a couple rate is shown, the first figure is per person in a sharing room and the second is the couple charge for a separate room. Pickup is Lahore or Islamabad. Routes without a couple rate are starting prices per person from Lahore for four people sharing a standard room.",
 };
 
 export function absoluteUrl(path = "/") {

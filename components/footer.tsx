@@ -7,9 +7,9 @@ export function Footer() {
       <div className="mx-auto grid max-w-[88rem] gap-12 px-5 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:px-10">
         <div>
           <p className="display text-5xl">eventures</p>
-          <p className="mt-3 text-xs tracking-[0.22em]">CLUB · LAHORE</p>
+          <p className="mt-3 text-xs tracking-[0.22em]">CLUB · LAHORE · ISLAMABAD</p>
           <p className="mt-6 max-w-sm text-sm leading-7 text-ink-soft">
-            Northern tours and private events, planned as separate work from the same desk.
+            Northern tours and events, planned from Lahore and Islamabad.
           </p>
         </div>
         <div className="text-sm leading-8">
@@ -32,9 +32,14 @@ export function Footer() {
         </div>
         <div className="text-sm leading-8">
           <p className="kicker mb-3">Desk</p>
-          <p>
-            {site.city}, {site.region}
-          </p>
+          {site.offices.map((office) => (
+            <p key={office.name}>
+              <span className="text-ink-soft">{office.name}</span>
+              <br />
+              {office.address}
+            </p>
+          ))}
+          <p className="mt-3 text-ink-soft">Pickup · {site.pickups.join(" and ")}</p>
           <a className="link-quiet" href={`mailto:${site.email}`}>
             {site.email}
           </a>

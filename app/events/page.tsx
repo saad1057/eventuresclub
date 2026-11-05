@@ -6,9 +6,9 @@ import { breadcrumbSchema, graphSchema } from "@/lib/schema";
 import { getEvents } from "@/lib/events";
 
 export const metadata: Metadata = {
-  title: "Events in Lahore and the north",
+  title: "Events in Lahore and Islamabad",
   description:
-    "Eventures Club plans corporate events, weddings and private gatherings from Lahore. A separate brief from the northern tours, with the same habit of writing the plan down.",
+    "Eventures Club plans weddings, birthday events, corporate events, custom events, and government office events from Lahore and Islamabad.",
   alternates: { canonical: "/events" },
 };
 
@@ -27,13 +27,13 @@ export default function EventsPage() {
       <p className="kicker">Events</p>
       <h1 className="display mt-3 max-w-4xl text-5xl md:text-7xl">A gathering is not a tour with flowers.</h1>
       <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-soft">
-        Corporate work, weddings and private rooms are planned on their own form. Pictures here set a mood. They are not a portfolio of nights we are pretending to have produced. The work starts when you tell us the date, the people, and what the hour is for.
+        Corporate work, weddings, birthdays, custom events and government office programmes are planned on their own form. Pictures here set a mood. They are not a portfolio of nights we are pretending to have produced. The work starts when you tell us the date, the people, and what the hour is for.
       </p>
       <div className="mt-12 grid gap-10">
         {events.map((event) => (
-          <Link key={event.slug} href={`/events/${event.slug}`} className="grid gap-6 border-t border-line pt-8 md:grid-cols-[320px_1fr] md:items-center">
+          <Link key={event.slug} href={`/events/${event.slug}`} className="group grid gap-6 border-t border-line pt-8 md:grid-cols-[320px_1fr] md:items-center">
             <div className="relative aspect-[4/3] overflow-hidden bg-paper-deep">
-              <Image src={event.image} alt={event.imageAlt} fill sizes="(min-width: 768px) 320px, 100vw" className="object-cover" />
+              <Image src={event.image} alt={event.imageAlt} fill sizes="(min-width: 768px) 320px, 100vw" className="object-cover transition duration-700 ease-out group-hover:scale-[1.04]" />
             </div>
             <div>
               <p className="kicker">{event.nav}</p>

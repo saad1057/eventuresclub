@@ -27,7 +27,7 @@ export default function AboutPage() {
       <div className="mt-10 grid gap-10 md:grid-cols-[minmax(0,1fr)_320px] md:items-start">
         <div className="max-w-2xl space-y-5 text-lg leading-8 text-ink-soft">
           <p>
-            Eventures Club plans northern journeys and private gatherings from Lahore. The tours have published prices because a road can be described before you are on it. The events do not, because a room depends on the people in it.
+            Eventures Club plans northern journeys and gatherings from two desks. The head office is at 26 Tip Canal Garden, Lahore. The branch is at 812, I-8/3, Islamabad. Tours are picked up in both cities. The tours have published prices because a road can be described before you are on it. The events do not, because a room depends on the people in it.
           </p>
           <p>
             We do not keep a scoreboard of travellers or a wall of borrowed weddings. If you want a reference, ask, and we will introduce you to someone who has actually been. The site is here to show the work clearly enough that the first email is useful.

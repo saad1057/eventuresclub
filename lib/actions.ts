@@ -85,7 +85,7 @@ export async function submitTourBrief(input: unknown): Promise<BriefResult> {
     { label: "Season", value: data.season },
     { label: "Dates", value: clean(data.dates) },
     { label: "Group size", value: String(data.groupSize) },
-    { label: "Departure", value: data.departure },
+    { label: "Pickup", value: data.departure },
     { label: "Length", value: data.length },
     { label: "Comfort", value: data.comfort },
     { label: "Budget", value: data.budget },

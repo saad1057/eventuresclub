@@ -13,6 +13,9 @@ import {
 const typeFromQuery: Record<string, (typeof eventTypes)[number]> = {
   corporate: "Corporate",
   weddings: "Wedding",
+  birthday: "Birthday",
+  custom: "Custom event",
+  government: "Government office",
   private: "Private gathering",
 };
 
