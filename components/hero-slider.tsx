@@ -35,6 +35,8 @@ export function HeroSlider({ slides }: { slides: HeroSlide[] }) {
             alt={slide.alt}
             fill
             priority={index === 0}
+            loading={index === 0 ? undefined : "eager"}
+            fetchPriority={index === 0 ? "high" : "low"}
             sizes="100vw"
             className="object-cover"
           />
