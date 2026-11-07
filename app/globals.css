@@ -987,20 +987,6 @@ html:has([data-dark-hero]) .site-header[data-top="true"] {
   transform: translateX(4px);
 }
 
-.footer-mark {
-  font-family: var(--font-display);
-  font-size: clamp(5rem, 21.5vw, 24rem);
-  font-weight: 460;
-  letter-spacing: -0.05em;
-  line-height: 0.74;
-  white-space: nowrap;
-  background: linear-gradient(to bottom, rgb(244 240 232 / 0.14), rgb(244 240 232 / 0.015));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  user-select: none;
-}
-
 /* ---------- WhatsApp desk ---------- */
 
 .wa-root {

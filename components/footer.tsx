@@ -116,9 +116,6 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <p className="footer-mark -mb-[0.06em] pl-[1.5vw]" aria-hidden="true">
-        eventures
-      </p>
     </footer>
   );
 }
