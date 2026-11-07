@@ -289,7 +289,7 @@ export const tours: Tour[] = [
     summary:
       "Five days joining the two green valleys: Swat and Kalam first, then Kumrat's forest for a night under the deodars. The best single trip if you want both water and woods. From PKR 62,000 a person for four.",
     lede: "Doing Swat and Kumrat separately wastes two long approaches from Lahore. This route takes the river road first, then crosses toward Dir and the forest, and comes home once. Five days is the shortest version that still gives each valley a night of its own.",
-    road: "The link between Kalam and Kumrat is not a scenic afterthought. It is a driving day, and we keep it as a driving day. Trying to add Mahodand on the same morning is how luggage and tempers get left behind.",
+    road: "The link between Kalam and Kumrat is not a scenic afterthought. Day three is the long one: an early jeep to Mahodand, back in Kalam by midday, then the road toward Dir for as far as daylight allows. Nothing else is added to that day, and we do not finish it in the dark on a jeep track.",
     image: "/images/pine-road.jpg",
     imageAlt: "A pine-lined road through the mountains of Khyber Pakhtunkhwa",
     gallery: [

@@ -61,7 +61,7 @@ const destinationCopy = [
   { slug: "naran-kaghan", place: "Naran", title: "A lake at the top of the jeep road.", text: "The Kaghan valley, and Saif-ul-Malook when the track is open.", image: "/images/saif.jpg", alt: "Lake Saif-ul-Malook below snow peaks" },
   { slug: "kumrat-valley", place: "Kumrat", title: "Forest, then the lake.", text: "Deodars, a jeep, and Katora when the day can hold it.", image: "/images/katora.jpg", alt: "Katora Lake in Kumrat Valley" },
   { slug: "chitral-kalash", place: "Chitral", title: "A valley you enter as a guest.", text: "Lowari, Chitral, and unhurried days in the Kalash valleys.", image: "/images/chitral.jpg", alt: "Karambar Lake in Chitral" },
-  { slug: "galiyat-nathiagali", place: "Galiyat", title: "Close enough for a weekend.", text: "Nathiagali and the ridge above the plains, when the north has to fit in three days.", image: "/images/pines.jpg", alt: "Pines in front of snow peaks in the hills of Pakistan" },
+  { slug: "galiyat-nathiagali", place: "Galiyat", title: "Close enough for a weekend.", text: "Nathiagali and the ridge above the plains, when the north has to fit in three days.", image: "/images/nathiagali.jpg", alt: "A walker on a snowy slope at Nathiagali" },
 ];
 
 const steps = [
