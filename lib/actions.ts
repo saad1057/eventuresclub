@@ -60,7 +60,7 @@ async function sendPair(args: {
     const message =
       error instanceof Error
         ? error.message
-        : "The brief could not be emailed. Write to hello@eventuresclub.com and we will pick it up.";
+        : "The brief could not be emailed. Write to eventuresclub@gmail.com and we will pick it up.";
     return { ok: false, message };
   }
 }

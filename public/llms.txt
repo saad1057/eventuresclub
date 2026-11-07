@@ -31,7 +31,7 @@ Eventures Club plans journeys to Nathiagali, Naran, Swat, Azad Kashmir, Kumrat, 
 
 - [Plan a tour](https://eventuresclub.com/plan/tour): emails every field to the desk and a copy to the customer
 - [Plan an event](https://eventuresclub.com/plan/event): a different form, same email behaviour
-- [Contact](https://eventuresclub.com/contact): hello@eventuresclub.com. Head office 26 Tip Canal Garden, Lahore. Branch office 812, I-8/3, Islamabad.
+- [Contact](https://eventuresclub.com/contact): eventuresclub@gmail.com. Head office 26 Tip Canal Garden, Lahore. Branch office 812, I-8/3, Islamabad.
 
 ## Journal
 

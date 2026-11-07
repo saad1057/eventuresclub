@@ -1,7 +1,7 @@
 export const site = {
   name: "Eventures Club",
   shortName: "Eventures",
-  email: "hello@eventuresclub.com",
+  email: "eventuresclub@gmail.com",
   city: "Lahore",
   region: "Punjab",
   country: "Pakistan",
