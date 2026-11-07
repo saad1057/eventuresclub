@@ -1191,11 +1191,11 @@ html:active-view-transition body {
 }
 
 ::view-transition-old(.page-out) {
-  animation: 0.42s cubic-bezier(0.4, 0, 0.7, 0.2) both page-out;
+  animation: 0.26s cubic-bezier(0.4, 0, 0.7, 0.2) both page-out;
 }
 
 ::view-transition-new(.page-in) {
-  animation: 1s var(--ease-out-expo) 0.14s both page-in;
+  animation: 0.8s var(--ease-out-expo) 0.02s both page-in;
 }
 
 ::view-transition-old(.chrome-out) {
@@ -1203,7 +1203,7 @@ html:active-view-transition body {
 }
 
 ::view-transition-new(.chrome-in) {
-  animation: 0.8s ease 0.35s both chrome-in;
+  animation: 0.6s ease 0.2s both chrome-in;
 }
 
 /* The journal photograph travels from its card to the article. */

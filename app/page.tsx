@@ -26,8 +26,8 @@ const heroSlides: HeroSlide[] = [
     place: "Hunza",
     line: "Karimabad, Attabad and Passu, with the drive counted honestly.",
     href: "/tours/hunza-valley",
-    image: "/images/passu.jpg",
-    alt: "The Passu peaks above the Hunza river",
+    image: "/images/rakaposhi.jpg",
+    alt: "Rakaposhi above Hunza Valley",
   },
   {
     desk: "Events",
@@ -50,8 +50,8 @@ const heroSlides: HeroSlide[] = [
     place: "Celebrations",
     line: "Birthdays, private gatherings, and the custom night that fits no list.",
     href: "/events/custom",
-    image: "/images/event-aisle.jpg",
-    alt: "A red aisle through a flowered venue",
+    image: "/images/event-floral-hall.jpg",
+    alt: "A hall dressed with a hanging floral installation",
   },
 ];
 
