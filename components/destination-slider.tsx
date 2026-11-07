@@ -70,14 +70,6 @@ export function DestinationSlider({ destinations }: { destinations: Destination[
             <span className="ml-2 text-paper/70">/ {total}</span>
           </p>
           <div className="flex items-center gap-2">
-            <button
-              type="button"
-              className="slide-arrow"
-              aria-label={slider.userPaused ? "Play destinations" : "Pause destinations"}
-              onClick={slider.togglePaused}
-            >
-              <SliderIcon name={slider.userPaused ? "play" : "pause"} />
-            </button>
             <button type="button" className="slide-arrow" aria-label="Previous destination" onClick={slider.prev}>
               <SliderIcon name="prev" />
             </button>

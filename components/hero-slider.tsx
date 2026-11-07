@@ -72,14 +72,6 @@ export function HeroSlider({ slides }: { slides: HeroSlide[] }) {
             </span>
           </Link>
           <div className="flex items-center gap-2">
-            <button
-              type="button"
-              className="slide-arrow"
-              aria-label={slider.userPaused ? "Play slideshow" : "Pause slideshow"}
-              onClick={slider.togglePaused}
-            >
-              <SliderIcon name={slider.userPaused ? "play" : "pause"} />
-            </button>
             <button type="button" className="slide-arrow" aria-label="Previous slide" onClick={slider.prev}>
               <SliderIcon name="prev" />
             </button>
