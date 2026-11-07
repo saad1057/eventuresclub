@@ -16,7 +16,7 @@ export function WhatsAppIcon({ size = 22 }: { size?: number }) {
 const options = [
   { label: "Plan an event", note: "A wedding, an office, a birthday", message: "Hello Eventures Club. I would like to plan an event." },
   { label: "Plan a tour", note: "A route north, or a custom trip", message: "Hello Eventures Club. I would like to plan a northern tour." },
-  { label: "Ask the desk", note: "Anything that is not quite either", message: "Hello Eventures Club. I have a question." },
+  { label: "Ask the desk", note: "Anything that is not quite either", message: "Hello Eventures Club. I have a question.", line: "desk" as const },
 ];
 
 function pageSubject(pathname: string) {
@@ -80,7 +80,7 @@ export function WhatsAppDesk() {
           {rows.map((row, index) => (
             <a
               key={row.label}
-              href={whatsappLink(row.message) ?? undefined}
+              href={whatsappLink(row.message, "line" in row ? row.line : "main") ?? undefined}
               target="_blank"
               rel="noopener noreferrer"
               className="wa-option"

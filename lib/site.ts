@@ -24,14 +24,17 @@ export function absoluteUrl(path = "/") {
 }
 
 const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "").replace(/\D/g, "");
+// The desk line takes general questions. It falls back to the main number if unset.
+const whatsappDeskNumber = (process.env.NEXT_PUBLIC_WHATSAPP_DESK_NUMBER ?? "").replace(/\D/g, "") || whatsappNumber;
 
 /**
  * A wa.me link with the note already written. Returns null in production until
  * NEXT_PUBLIC_WHATSAPP_NUMBER is set, so no dead button ever ships. In development
  * it opens WhatsApp's contact picker so the design can still be tried.
  */
-export function whatsappLink(message: string) {
+export function whatsappLink(message: string, line: "main" | "desk" = "main") {
   const text = encodeURIComponent(message);
-  if (whatsappNumber) return `https://wa.me/${whatsappNumber}?text=${text}`;
+  const number = line === "desk" ? whatsappDeskNumber : whatsappNumber;
+  if (number) return `https://wa.me/${number}?text=${text}`;
   return process.env.NODE_ENV === "development" ? `https://wa.me/?text=${text}` : null;
 }
