@@ -853,41 +853,6 @@ html:has([data-dark-hero]) .site-header[data-top="true"] {
   animation-play-state: paused;
 }
 
-.slide-arrow {
-  position: relative;
-  isolation: isolate;
-  display: inline-grid;
-  place-items: center;
-  width: 3rem;
-  height: 3rem;
-  overflow: hidden;
-  border: 1px solid rgb(244 240 232 / 0.6);
-  color: var(--color-paper);
-  transition:
-    color 0.4s var(--ease-out-expo),
-    border-color 0.4s var(--ease-out-expo);
-}
-
-.slide-arrow::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: var(--color-paper);
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform 0.5s var(--ease-out-expo);
-}
-
-.slide-arrow:hover {
-  color: var(--color-ink);
-  border-color: var(--color-paper);
-}
-
-.slide-arrow:hover::before {
-  transform: scaleY(1);
-}
-
 .dest-frame {
   position: absolute;
   inset: 0;

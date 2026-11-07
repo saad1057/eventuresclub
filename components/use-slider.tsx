@@ -92,15 +92,3 @@ export function useSlider<T extends HTMLElement>(count: number) {
     },
   };
 }
-
-export function SliderIcon({ name }: { name: "prev" | "next" }) {
-  const paths = {
-    prev: <path d="M14 5 7 12l7 7M7.5 12H20" />,
-    next: <path d="m10 5 7 7-7 7M16.5 12H4" />,
-  };
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      {paths[name]}
-    </svg>
-  );
-}

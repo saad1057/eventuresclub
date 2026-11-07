@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { SliderIcon, useSlider } from "@/components/use-slider";
+import { useSlider } from "@/components/use-slider";
 
 export type Destination = {
   place: string;
@@ -69,14 +69,6 @@ export function DestinationSlider({ destinations }: { destinations: Destination[
             <span className="display text-3xl">{position}</span>
             <span className="ml-2 text-paper/70">/ {total}</span>
           </p>
-          <div className="flex items-center gap-2">
-            <button type="button" className="slide-arrow" aria-label="Previous destination" onClick={slider.prev}>
-              <SliderIcon name="prev" />
-            </button>
-            <button type="button" className="slide-arrow" aria-label="Next destination" onClick={slider.next}>
-              <SliderIcon name="next" />
-            </button>
-          </div>
         </div>
 
         <div

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { SliderIcon, useSlider } from "@/components/use-slider";
+import { useSlider } from "@/components/use-slider";
 
 export type HeroSlide = {
   desk: "Events" | "Tours";
@@ -71,14 +71,6 @@ export function HeroSlider({ slides }: { slides: HeroSlide[] }) {
               {current.line} <span className="link-go ml-1 inline-flex align-baseline text-paper">View</span>
             </span>
           </Link>
-          <div className="flex items-center gap-2">
-            <button type="button" className="slide-arrow" aria-label="Previous slide" onClick={slider.prev}>
-              <SliderIcon name="prev" />
-            </button>
-            <button type="button" className="slide-arrow" aria-label="Next slide" onClick={slider.next}>
-              <SliderIcon name="next" />
-            </button>
-          </div>
         </div>
 
         <div className="mt-6 grid gap-2 md:gap-4" style={{ gridTemplateColumns: `repeat(${slides.length}, minmax(0, 1fr))` }}>
