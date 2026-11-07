@@ -53,6 +53,7 @@ async function sendPair(args: {
         subject: args.customerSubject,
         html: copyHtml,
         text: copyText,
+        replyTo: inboxAddress(),
       },
     ]);
     return { ok: true, delivery };
