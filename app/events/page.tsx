@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { EventCard } from "@/components/cards";
 import { JsonLd } from "@/components/json-ld";
-import { breadcrumbSchema, graphSchema } from "@/lib/schema";
+import { PageHero } from "@/components/page-hero";
+import { Reveal } from "@/components/reveal";
+import { WhatsAppButton } from "@/components/whatsapp";
 import { getEvents } from "@/lib/events";
+import { breadcrumbSchema, graphSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Events in Lahore and Islamabad",
@@ -15,7 +18,7 @@ export const metadata: Metadata = {
 export default function EventsPage() {
   const events = getEvents();
   return (
-    <div className="mx-auto max-w-[88rem] px-5 pb-20 pt-28 md:px-10 md:pt-36">
+    <>
       <JsonLd
         data={graphSchema([
           breadcrumbSchema([
@@ -24,25 +27,40 @@ export default function EventsPage() {
           ]),
         ])}
       />
-      <p className="kicker">Events</p>
-      <h1 className="display mt-3 max-w-4xl text-5xl md:text-7xl">A gathering is not a tour with flowers.</h1>
-      <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-soft">
-        Corporate work, weddings, birthdays, custom events and government office programmes are planned on their own form. Pictures here set a mood. They are not a portfolio of nights we are pretending to have produced. The work starts when you tell us the date, the people, and what the hour is for.
-      </p>
-      <div className="mt-12 grid gap-10">
-        {events.map((event) => (
-          <Link key={event.slug} href={`/events/${event.slug}`} className="group grid gap-6 border-t border-line pt-8 md:grid-cols-[320px_1fr] md:items-center">
-            <div className="relative aspect-[4/3] overflow-hidden bg-paper-deep">
-              <Image src={event.image} alt={event.imageAlt} fill sizes="(min-width: 768px) 320px, 100vw" className="object-cover transition duration-700 ease-out group-hover:scale-[1.04]" />
-            </div>
-            <div>
-              <p className="kicker">{event.nav}</p>
-              <h2 className="display mt-3 text-4xl md:text-5xl">{event.title}</h2>
-              <p className="mt-4 max-w-2xl text-ink-soft">{event.summary}</p>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </div>
+      <PageHero
+        image="/images/event-aisle.jpg"
+        alt="A red aisle through a flowered venue"
+        kicker="Events"
+        title="A gathering is not a tour with flowers."
+      >
+        Corporate work, weddings, birthdays, custom events and government office programmes, each planned on its own form.
+      </PageHero>
+      <section className="page-width py-14 md:py-20">
+        <Reveal className="grid gap-5 md:grid-cols-[1fr_1fr] md:items-end">
+          <h2 className="display text-4xl md:text-6xl">The work starts when you tell us the date, the people, and what the hour is for.</h2>
+          <p className="max-w-xl leading-7 text-ink-soft">
+            Pictures here set a mood. They are not a portfolio of nights we are pretending to have produced.
+          </p>
+        </Reveal>
+        <div className="mt-12 grid gap-4 md:grid-cols-2">
+          {events.map((event, index) => (
+            <Reveal key={event.slug} delay={(index % 2) * 90} className="grid">
+              <EventCard event={event} large className="md:min-h-[33rem]" sizes="(min-width: 768px) 50vw, 100vw" />
+            </Reveal>
+          ))}
+        </div>
+      </section>
+      <section className="bg-forest-deep text-paper">
+        <div className="page-width flex flex-wrap items-center justify-between gap-8 py-14 md:py-20">
+          <h2 className="display max-w-2xl text-4xl md:text-5xl">Have a date in mind?</h2>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/plan/event" className="btn btn-paper btn-go">
+              Plan an event
+            </Link>
+            <WhatsAppButton message="Hello Eventures Club. I would like to plan an event." className="!border-paper/30" />
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

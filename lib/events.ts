@@ -20,8 +20,8 @@ export const events: ClubEvent[] = [
     summary:
       "Offsites, dinners, launches and working sessions for Lahore teams, planned as one job rather than a stack of vendors. A northern offsite is possible. It is quoted as an event with travel attached, not as a sightseeing tour in a blazer.",
     lede: "A company hires us when someone has to be accountable for the room, the run of show, and the way people get there. We work from Lahore and Islamabad. The event can be in either city, in a farmhouse on the edge of one, or up in the Galiyat and Swat when the point of leaving is the leaving.",
-    image: "/images/event-room.jpg",
-    imageAlt: "Rows of chairs in a hall prepared for a talk",
+    image: "/images/event-keynote.jpg",
+    imageAlt: "A speaker on stage in front of a lit audience",
     suits: [
       "Leadership offsites",
       "Client dinners",
@@ -63,8 +63,8 @@ export const events: ClubEvent[] = [
     summary:
       "Mehndi, barat, walima and nikah in Lahore, and the occasional nikah in the hills when the guest list can actually travel. We plan the day and the people getting to it. We do not pretend a meadow is simple because the photograph is.",
     lede: "A wedding is a sequence of rooms, meals and relatives. The useful work is unglamorous: which gate the cars use, when the food reaches the last table, who is holding the timeline when the photographer wants ten more minutes. That is the work. Flowers are part of it, not a substitute for it.",
-    image: "/images/event-gathering.jpg",
-    imageAlt: "Long tables dressed for a celebration",
+    image: "/images/event-stage.jpg",
+    imageAlt: "A floral wedding stage under chandeliers",
     suits: ["Nikah", "Mehndi", "Barat and walima", "A small destination nikah"],
     handles: [
       "Venue and layout",
@@ -102,8 +102,8 @@ export const events: ClubEvent[] = [
     summary:
       "Anniversaries, small dinners and family days, in Lahore or just far enough north to feel away. Birthdays have their own page. This one is for the gatherings that are still just the people in the room.",
     lede: "Private, here, means the guest list has a reason and the room is built around that reason. A birthday is planned on the birthday page. An anniversary dinner is not a decor project unless the decor is the gift. We start from the people and the hour.",
-    image: "/images/event-table.jpg",
-    imageAlt: "A dining table set for a long, unhurried meal",
+    image: "/images/event-banquet.jpg",
+    imageAlt: "A banquet hall of round tables under chandeliers",
     suits: ["Anniversaries", "Family lunches", "A dinner that needs a room, not a restaurant queue", "A gathering that is not a wedding, a birthday, or an office"],
     handles: [
       "A room or a house for the number you actually have",
@@ -140,8 +140,8 @@ export const events: ClubEvent[] = [
     summary:
       "Birthday events in Lahore or Islamabad, from a dinner table to a house full of family. The plan starts with who is coming and what the hour is for, not with a stage.",
     lede: "A birthday here is the guest list and the room, sized to the person. A dinner for twelve is not planned like a hall for two hundred. If the day also wants a night in the hills, that travel is written beside the event, not hidden inside a decoration quote.",
-    image: "/images/event-table.jpg",
-    imageAlt: "A dining table set for a long, unhurried meal",
+    image: "/images/event-birthday.jpg",
+    imageAlt: "A balloon arch and dessert table set for a birthday",
     suits: ["A family birthday", "A milestone dinner", "A children's afternoon with a real end time", "A party that should stay in one house"],
     handles: [
       "The room or the house",
@@ -174,8 +174,8 @@ export const events: ClubEvent[] = [
     summary:
       "Custom events for occasions that are not a wedding, a birthday, a company offsite, or a government office. You describe the hour. We write the plan.",
     lede: "Some gatherings do not fit a category, and forcing them into one produces the wrong questions. A farewell, a mehfil, a product sitting with family in the room, a dinner that is also an announcement: those come through the custom brief. The form is the same length as the others. The notes field is where the real event lives.",
-    image: "/images/event-gathering.jpg",
-    imageAlt: "Long tables dressed for a celebration",
+    image: "/images/event-floral-hall.jpg",
+    imageAlt: "A hall dressed with a hanging floral installation",
     suits: ["A farewell or a welcome", "A family announcement", "A dinner with a purpose and no standard name", "An occasion that mixes hosts who do not share one office"],
     handles: [
       "A shape for the event after we have read what it actually is",
@@ -204,8 +204,8 @@ export const events: ClubEvent[] = [
     summary:
       "Government office events: briefings, inaugurations, and official programmes that need a room, a run of show, and a host who is on time. Protocol is part of the plan, not a decoration added at the door.",
     lede: "An office event fails when the sequence is vague. Who enters, who speaks, where the press stands, and when the room is clear again are the work. We plan those hours in Lahore or Islamabad. We do not describe a stock photograph of a hall as one of these programmes.",
-    image: "/images/event-room.jpg",
-    imageAlt: "Rows of chairs in a hall prepared for a talk",
+    image: "/images/event-formal-hall.jpg",
+    imageAlt: "A formal hall set with round tables and a screen",
     suits: ["Briefings and seminars", "Inaugurations", "Official dinners", "A programme with a fixed order of speakers"],
     handles: [
       "The room against the real headcount and the protocol",

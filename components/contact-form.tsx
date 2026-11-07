@@ -23,7 +23,7 @@ export function ContactForm() {
 
   if (result?.ok) {
     return (
-      <div className="border border-line p-6">
+      <div className="rise">
         <h2 className="display text-4xl">We have the note.</h2>
         <p className="mt-4 text-ink-soft">
           {result.delivery === "email"
@@ -72,7 +72,7 @@ export function ContactForm() {
           {result.message} {result.fieldErrors ? Object.values(result.fieldErrors).join(" ") : ""}
         </p>
       ) : null}
-      <button type="button" className="btn btn-solid w-fit" disabled={pending} onClick={onSubmit}>
+      <button type="button" className="btn btn-solid btn-go w-fit" disabled={pending} onClick={onSubmit}>
         {pending ? "Sending" : "Email the note"}
       </button>
     </div>

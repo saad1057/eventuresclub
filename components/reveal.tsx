@@ -5,9 +5,13 @@ import { useEffect, useRef } from "react";
 export function Reveal({
   children,
   className = "",
+  variant = "up",
+  delay = 0,
 }: {
   children: React.ReactNode;
   className?: string;
+  variant?: "up" | "clip";
+  delay?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -25,14 +29,18 @@ export function Reveal({
           observer.disconnect();
         }
       },
-      { threshold: 0.25 },
+      { threshold: 0.08, rootMargin: "0px 0px -6% 0px" },
     );
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div ref={ref} className={`reveal ${className}`}>
+    <div
+      ref={ref}
+      className={`${variant === "up" ? "reveal-up" : "reveal"} ${className}`}
+      style={delay ? ({ "--delay": `${delay}ms` } as React.CSSProperties) : undefined}
+    >
       {children}
     </div>
   );

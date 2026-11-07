@@ -20,6 +20,12 @@ Northern frames are of the places named. Traveler frames are real people in Hunz
 | pines.jpg | Pines and snow peaks, Pakistan | Tahir Ali | Pexels License | https://www.pexels.com/photo/green-pine-trees-near-snow-covered-mountains-11915233/ |
 | hunza-traveler.jpg | A traveler above Hunza Valley | Asad Ali | Pexels License | https://www.pexels.com/photo/adventurous-viewpoint-over-hunza-valley-pakistan-35170643/ |
 | attabad-traveler.jpg | A traveler at Attabad Lake, Hunza | Arif Esapzai | Pexels License | https://www.pexels.com/photo/man-admiring-attabad-lake-in-hunza-pakistan-35302565/ |
-| event-table.jpg | A dining table set for a long meal | Jay Wennington | Unsplash License | https://unsplash.com/photos/N_Y88TWmGwA |
-| event-gathering.jpg | Reception tables prepared for a celebration | See source page | Unsplash License | https://unsplash.com/photos/photo-1519225421980-715cb0215aed |
 | event-room.jpg | A hall seated for a talk | See source page | Unsplash License | https://unsplash.com/photos/photo-1511578314322-379afb476865 |
+| event-stage.jpg | A floral wedding stage under chandeliers | See source page | Pexels License | https://www.pexels.com/photo/elegant-floral-wedding-mandap-with-chandeliers-34079355/ |
+| event-aisle.jpg | A red aisle through a flowered wedding venue | See source page | Pexels License | https://www.pexels.com/photo/elegant-wedding-venue-with-ornate-decor-and-lighting-38302968/ |
+| event-nikah.jpg | A nikah register being signed, Sialkot | Hassan Shoots | Pexels License | https://www.pexels.com/photo/wedding-nikkah-ceremony-27164177/ |
+| event-keynote.jpg | A speaker on stage before a lit audience | See source page | Pexels License | https://www.pexels.com/photo/back-view-of-speaker-on-stage-with-audience-lights-31129059/ |
+| event-floral-hall.jpg | A hall dressed with a hanging floral installation | See source page | Pexels License | https://www.pexels.com/photo/beautifully-illuminated-and-decorated-hall-in-a-luxurious-restaurant-17023014/ |
+| event-banquet.jpg | A banquet hall of round tables under chandeliers | See source page | Pexels License | https://www.pexels.com/photo/elegant-wedding-banquet-hall-with-chandeliers-36028895/ |
+| event-formal-hall.jpg | A formal hotel hall set with round tables | Kevin Early | Pexels License | https://www.pexels.com/photo/elegant-hotel-banquet-hall-with-chandeliers-37240724/ |
+| event-birthday.jpg | Balloon arch and dessert table at a birthday | See source page | Pexels License | https://www.pexels.com/photo/balloon-decorations-in-the-party-area-7548036/ |

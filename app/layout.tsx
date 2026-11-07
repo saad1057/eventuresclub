@@ -2,7 +2,10 @@ import type { Metadata, Viewport } from "next";
 import { Fraunces, Geist } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { FooterTransition } from "@/components/page-chrome";
+import { RouteProgress } from "@/components/route-progress";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { WhatsAppDesk } from "@/components/whatsapp";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -21,7 +24,7 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Eventures Club — Northern tours and events from Lahore",
+    default: "Eventures Club — Events and northern tours from Lahore",
     template: "%s — Eventures Club",
   },
   description: site.description,
@@ -31,7 +34,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_PK",
     siteName: site.name,
-    title: "Eventures Club — Northern tours and events from Lahore",
+    title: "Eventures Club — Events and northern tours from Lahore",
     description: site.description,
     images: [{ url: "/brand/og-default.jpg", width: 1200, height: 630, alt: "Passu peaks, with the Eventures Club mark" }],
   },
@@ -63,9 +66,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         <SmoothScroll>
+          <RouteProgress />
           <Header />
           <main id="content">{children}</main>
-          <Footer />
+          <FooterTransition>
+            <Footer />
+          </FooterTransition>
+          <WhatsAppDesk />
         </SmoothScroll>
       </body>
     </html>

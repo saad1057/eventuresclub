@@ -1,30 +1,40 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { Logo } from "@/components/logo";
 
 const links = [
-  { href: "/tours", label: "Tours" },
   { href: "/events", label: "Events" },
+  { href: "/tours", label: "Tours" },
   { href: "/blog", label: "Journal" },
   { href: "/contact", label: "Contact" },
 ];
 
 const plans = [
   {
-    href: "/plan/tour",
-    kicker: "Tour",
-    label: "Plan a tour",
-    text: "Places, dates, and how you want to travel.",
-  },
-  {
     href: "/plan/event",
     kicker: "Event",
     label: "Plan an event",
     text: "The room, the guests, and the hour.",
   },
+  {
+    href: "/plan/tour",
+    kicker: "Tour",
+    label: "Plan a tour",
+    text: "Places, dates, and how you want to travel.",
+  },
+];
+
+const mobileLinks = [
+  { href: "/events", label: "Events" },
+  { href: "/tours", label: "Tours" },
+  { href: "/plan/event", label: "Plan an event" },
+  { href: "/plan/tour", label: "Plan a tour" },
+  { href: "/blog", label: "Journal" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 function current(pathname: string, href: string) {
@@ -37,8 +47,6 @@ export function Header() {
   const [planOpen, setPlanOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const planRef = useRef<HTMLDivElement>(null);
-  const home = pathname === "/";
-  const light = home && !scrolled && !menuOpen;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -72,15 +80,13 @@ export function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-40 border-b transition-[background-color,color,border-color] duration-500 ${
-        light ? "border-transparent text-paper" : "border-line/80 bg-paper/95 text-ink backdrop-blur-sm"
-      }`}
+      style={{ viewTransitionName: "site-header" }}
+      data-top={!scrolled && !menuOpen}
+      className="site-header fixed inset-x-0 top-0 z-40"
     >
       <div className="mx-auto flex h-16 max-w-[88rem] items-center justify-between px-5 md:h-20 md:px-10">
-        <Link href="/" className="flex items-center gap-3" aria-label="Eventures Club, home" onClick={closeMenus}>
-          <Image src="/brand/icon.svg" alt="" width={36} height={36} className="h-9 w-9" />
-          <span className="display text-[1.65rem] leading-none">eventures</span>
-          <span className="mt-1 hidden text-[0.62rem] tracking-[0.22em] sm:inline">CLUB</span>
+        <Link href="/" aria-label="Eventures Club, home" onClick={closeMenus}>
+          <Logo />
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm md:flex" aria-label="Primary">
@@ -146,27 +152,17 @@ export function Header() {
       <div className={`mobile-menu md:hidden ${menuOpen ? "is-open" : ""}`} inert={!menuOpen} aria-hidden={!menuOpen}>
         <div className="mobile-menu-inner">
           <div className="flex flex-col gap-5 px-5 py-8 text-3xl">
-            <Link href="/tours" className="display" onClick={closeMenus}>
-              Tours
-            </Link>
-            <Link href="/events" className="display" onClick={closeMenus}>
-              Events
-            </Link>
-            <Link href="/plan/tour" className="display" onClick={closeMenus}>
-              Plan a tour
-            </Link>
-            <Link href="/plan/event" className="display" onClick={closeMenus}>
-              Plan an event
-            </Link>
-            <Link href="/blog" className="display" onClick={closeMenus}>
-              Journal
-            </Link>
-            <Link href="/about" className="display" onClick={closeMenus}>
-              About
-            </Link>
-            <Link href="/contact" className="display" onClick={closeMenus}>
-              Contact
-            </Link>
+            {mobileLinks.map((link, index) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="display mobile-link"
+                style={{ "--i": index } as React.CSSProperties}
+                onClick={closeMenus}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

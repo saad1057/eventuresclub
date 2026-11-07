@@ -2,18 +2,20 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
+import { PageHero } from "@/components/page-hero";
+import { Reveal } from "@/components/reveal";
 import { breadcrumbSchema, graphSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "About the club",
   description:
-    "Eventures Club is a Lahore desk for northern Pakistan tours and for events. Two kinds of work, written down, with no invented history.",
+    "Eventures Club is a Lahore desk for events and for northern Pakistan tours. Two kinds of work, written down, with no invented history.",
   alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-[88rem] px-5 pb-20 pt-28 md:px-10 md:pt-36">
+    <>
       <JsonLd
         data={graphSchema([
           breadcrumbSchema([
@@ -22,12 +24,14 @@ export default function AboutPage() {
           ]),
         ])}
       />
-      <p className="kicker">About</p>
-      <h1 className="display mt-3 max-w-4xl text-5xl md:text-7xl">A desk in Lahore for two kinds of leaving.</h1>
-      <div className="mt-10 grid gap-10 md:grid-cols-[minmax(0,1fr)_320px] md:items-start">
+      <PageHero image="/images/attabad-traveler.jpg" alt="A traveler at Attabad Lake" kicker="About" title="A desk in Lahore for two kinds of leaving." short />
+      <section className="page-width grid gap-12 py-14 md:grid-cols-[minmax(0,1fr)_24rem] md:items-start md:py-20">
         <div className="max-w-2xl space-y-5 text-lg leading-8 text-ink-soft">
+          <p className="display !text-[1.75rem] !leading-[1.25] tracking-[-0.02em] text-ink">
+            Eventures Club plans northern journeys and gatherings from two desks. The head office is at 26 Tip Canal Garden, Lahore. The branch is at 812, I-8/3, Islamabad.
+          </p>
           <p>
-            Eventures Club plans northern journeys and gatherings from two desks. The head office is at 26 Tip Canal Garden, Lahore. The branch is at 812, I-8/3, Islamabad. Tours are picked up in both cities. The tours have published prices because a road can be described before you are on it. The events do not, because a room depends on the people in it.
+            Tours are picked up in both cities. The tours have published prices because a road can be described before you are on it. The events do not, because a room depends on the people in it.
           </p>
           <p>
             We do not keep a scoreboard of travellers or a wall of borrowed weddings. If you want a reference, ask, and we will introduce you to someone who has actually been. The site is here to show the work clearly enough that the first email is useful.
@@ -38,25 +42,24 @@ export default function AboutPage() {
           <p>
             The reply comes by email, with your own answers repeated, so you can see what left the browser. Payment, when there is any, is on an invoice after you approve a written plan. This website does not take it.
           </p>
-          <p>
-            <Link href="/contact" className="link-quiet">
-              Write to the desk
-            </Link>{" "}
-            or start with{" "}
-            <Link href="/plan/tour" className="link-quiet">
-              a tour
-            </Link>{" "}
-            or{" "}
-            <Link href="/plan/event" className="link-quiet">
-              an event
+          <div className="flex flex-wrap gap-3 pt-3">
+            <Link href="/plan/event" className="btn btn-solid btn-go">
+              Plan an event
             </Link>
-            .
-          </p>
+            <Link href="/plan/tour" className="btn btn-ghost btn-go">
+              Plan a tour
+            </Link>
+            <Link href="/contact" className="btn btn-ghost">
+              Write to the desk
+            </Link>
+          </div>
         </div>
-        <div className="relative aspect-[3/4] overflow-hidden bg-paper-deep">
-          <Image src="/images/attabad-traveler.jpg" alt="A traveler at Attabad Lake" fill sizes="320px" className="object-cover" />
-        </div>
-      </div>
-    </div>
+        <Reveal variant="clip">
+          <div className="relative aspect-[3/4] overflow-hidden bg-paper-deep">
+            <Image src="/images/event-nikah.jpg" alt="A nikah register being signed" fill sizes="(min-width: 768px) 24rem, 100vw" className="object-cover" />
+          </div>
+        </Reveal>
+      </section>
+    </>
   );
 }

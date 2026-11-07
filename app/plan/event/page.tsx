@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { EventPlanner } from "@/components/event-planner";
 import { JsonLd } from "@/components/json-ld";
+import { PageHero } from "@/components/page-hero";
 import { breadcrumbSchema, graphSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function PlanEventPage() {
   return (
-    <div className="mx-auto max-w-[88rem] px-5 pb-20 pt-28 md:px-10 md:pt-36">
+    <>
       <JsonLd
         data={graphSchema([
           breadcrumbSchema([
@@ -22,16 +23,14 @@ export default function PlanEventPage() {
           ]),
         ])}
       />
-      <p className="kicker">Event brief</p>
-      <h1 className="display mt-3 max-w-3xl text-5xl md:text-7xl">Describe the hour. We will describe the room.</h1>
-      <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-soft">
-        This planner is only for gatherings. Tours have their own. You will get an email with every answer, and so will we. The next note from the desk is a direction, not an invoice.
-      </p>
-      <div className="mt-12">
+      <PageHero image="/images/event-banquet.jpg" alt="A banquet hall of round tables under chandeliers" kicker="Event brief" title="Describe the hour. We will describe the room." short>
+        You will get an email with every answer, and so will we. The next note from the desk is a direction, not an invoice.
+      </PageHero>
+      <section className="page-width py-14 md:py-20">
         <Suspense fallback={<p className="text-ink-soft">Opening the planner.</p>}>
           <EventPlanner />
         </Suspense>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }

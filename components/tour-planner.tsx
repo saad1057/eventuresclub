@@ -13,6 +13,7 @@ import {
   tripLengths,
   type DestinationId,
 } from "@/lib/options";
+import { StepRail, useSteps } from "@/components/step-rail";
 import { getTour } from "@/lib/tours";
 
 const steps = ["Places", "Shape", "You"];
@@ -21,7 +22,7 @@ export function TourPlanner() {
   const params = useSearchParams();
   const preset = params.get("destination");
   const tour = getTour(params.get("tour") || "");
-  const [step, setStep] = useState(0);
+  const { step, direction, leaving, moveTo } = useSteps(2);
   const [selected, setSelected] = useState<DestinationId[]>(() =>
     destinations.some((item) => item.id === preset) ? [preset as DestinationId] : [],
   );
@@ -68,7 +69,7 @@ export function TourPlanner() {
       return;
     }
     setLocalError("");
-    setStep((value) => Math.min(value + 1, 2));
+    moveTo(step + 1);
   }
 
   async function onSubmit() {
@@ -96,7 +97,7 @@ export function TourPlanner() {
 
   if (result?.ok) {
     return (
-      <div className="border border-line p-6 md:p-10">
+      <div className="panel rise p-6 md:p-10">
         <p className="kicker">Sent</p>
         <h2 className="display mt-3 text-4xl">The brief is with us.</h2>
         <p className="mt-4 max-w-xl text-ink-soft">
@@ -137,10 +138,9 @@ export function TourPlanner() {
   return (
     <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px]">
       <div>
-        <p className="text-sm text-ink-soft">
-          Step {step + 1} of {steps.length} · {steps[step]}
-        </p>
-        <div key={step} className="rise mt-6">
+        <StepRail steps={steps} step={step} onBack={moveTo} />
+        <div className={`swap step-out-${direction} mt-8 ${leaving ? "is-leaving" : ""}`}>
+        <div key={step} className={`step-in-${direction}`}>
           {step === 0 ? (
             <div className="grid gap-3 sm:grid-cols-2">
               {destinations.map((item) => (
@@ -245,6 +245,7 @@ export function TourPlanner() {
             </div>
           ) : null}
         </div>
+        </div>
         {localError ? <p className="mt-4 text-sm text-copper-deep">{localError}</p> : null}
         {result && !result.ok ? (
           <p className="mt-4 text-sm text-copper-deep">
@@ -254,27 +255,27 @@ export function TourPlanner() {
         ) : null}
         <div className="mt-8 flex gap-3">
           {step > 0 ? (
-            <button type="button" className="btn btn-ghost" onClick={() => setStep((value) => value - 1)}>
+            <button type="button" className="btn btn-ghost" onClick={() => moveTo(step - 1)}>
               Back
             </button>
           ) : null}
           {step < 2 ? (
-            <button type="button" className="btn btn-solid" onClick={next}>
+            <button type="button" className="btn btn-solid btn-go" onClick={next}>
               Continue
             </button>
           ) : (
-            <button type="button" className="btn btn-solid" disabled={pending} onClick={onSubmit}>
+            <button type="button" className="btn btn-solid btn-go" disabled={pending} onClick={onSubmit}>
               {pending ? "Sending" : "Email the brief"}
             </button>
           )}
         </div>
       </div>
-      <aside className="h-fit border border-line bg-paper-deep p-5 lg:sticky lg:top-28">
-        <p className="kicker">Your brief</p>
+      <aside className="panel panel-dark h-fit p-6 lg:sticky lg:top-28">
+        <p className="kicker kicker-light">Your brief</p>
         <dl className="mt-4 space-y-3 text-sm">
           {summary.map(([label, value]) => (
             <div key={label}>
-              <dt className="text-ink-soft">{label}</dt>
+              <dt className="text-paper/60">{label}</dt>
               <dd>{value}</dd>
             </div>
           ))}
