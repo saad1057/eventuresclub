@@ -106,28 +106,11 @@ export default async function HomePage() {
     return event ? [{ ...item, event }] : [];
   });
 
-  const ticker = [...allEvents.map((event) => event.nav), "Hunza", "Swat", "Naran", "Kumrat", "Chitral", "Kashmir", "Skardu"];
-
   return (
     <>
       <JsonLd data={graphSchema([{ "@type": "WebSite", name: site.name, url: site.url }, ...catalogOffers(), ...eventCatalog()])} />
 
       <HeroSlider slides={heroSlides} />
-
-      <div className="marquee bg-forest-deep py-5 text-paper" aria-hidden="true">
-        <div className="marquee-track">
-          {[0, 1].map((copy) => (
-            <div key={copy} className="flex flex-none items-center">
-              {ticker.map((word) => (
-                <span key={word} className="display flex items-center text-2xl italic">
-                  <span className="px-7">{word}</span>
-                  <span className="h-1.5 w-1.5 bg-copper-light" />
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
 
       <section className="page-width grid gap-10 py-20 md:grid-cols-[1.25fr_1fr] md:items-end md:py-28">
         <Reveal>

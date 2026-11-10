@@ -1057,24 +1057,6 @@ html:has([data-dark-hero]) .site-header[data-top="true"] {
   opacity: 1;
 }
 
-/* ---------- Marquee ---------- */
-
-.marquee {
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 46s linear infinite;
-}
-
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
-
 /* ---------- Choose-a-desk panels ---------- */
 
 .desk-pair {
@@ -1458,12 +1440,6 @@ html:active-view-transition body {
   }
 }
 
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 @keyframes wa-ping {
   to {
     opacity: 0;
@@ -1528,7 +1504,6 @@ html:active-view-transition body {
   .wa-root,
   .wa-panel,
   .wa-pulse::after,
-  .marquee-track,
   .photo-zoom {
     animation: none !important;
     clip-path: none;
