@@ -1,3 +1,4 @@
+import type { Faq, PostMeta } from "@/lib/blog";
 import { getEvent, getEvents } from "@/lib/events";
 import { getTour, getTours } from "@/lib/tours";
 import { absoluteUrl, site } from "@/lib/site";
@@ -91,23 +92,58 @@ export function eventServiceSchema(slug: string) {
   };
 }
 
-export function articleSchema(post: {
-  title: string;
-  description: string;
-  slug: string;
-  date: string;
-  image: string;
-}) {
+export function articleSchema(post: PostMeta) {
+  const url = absoluteUrl(`/blog/${post.slug}`);
   return {
     "@type": "Article",
+    "@id": `${url}#article`,
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    dateModified: post.date,
-    image: absoluteUrl(post.image),
-    mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
+    dateModified: post.updated,
+    image: { "@type": "ImageObject", url: absoluteUrl(post.image), caption: post.imageAlt },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    url,
+    articleSection: post.category,
+    keywords: post.keywords.join(", "),
+    wordCount: post.words,
+    inLanguage: "en-PK",
+    isAccessibleForFree: true,
     author: { "@id": absoluteUrl("/#organization") },
     publisher: { "@id": absoluteUrl("/#organization") },
+  };
+}
+
+export function faqSchema(faq: Faq[]) {
+  if (faq.length === 0) return null;
+  return {
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+}
+
+export function blogSchema(posts: PostMeta[]) {
+  const url = absoluteUrl("/blog");
+  return {
+    "@type": "Blog",
+    "@id": `${url}#blog`,
+    name: `${site.name} Journal`,
+    url,
+    description: "Practical notes on planning northern Pakistan tours and events from Lahore.",
+    inLanguage: "en-PK",
+    publisher: { "@id": absoluteUrl("/#organization") },
+    blogPost: posts.map((post) => ({
+      "@type": "BlogPosting",
+      headline: post.title,
+      url: absoluteUrl(`/blog/${post.slug}`),
+      datePublished: post.date,
+      dateModified: post.updated,
+      image: absoluteUrl(post.image),
+    })),
   };
 }
 

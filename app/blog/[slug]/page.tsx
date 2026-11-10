@@ -4,14 +4,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { ViewTransition } from "react";
+import { ArticleContents } from "@/components/article-contents";
 import { ReadingProgress, ShareTools } from "@/components/article-tools";
 import { PostCard } from "@/components/cards";
 import { JsonLd } from "@/components/json-ld";
 import { Reveal } from "@/components/reveal";
 import { WhatsAppButton } from "@/components/whatsapp";
-import { getPost, getPosts } from "@/lib/blog";
+import { getPost, getPosts, headingId } from "@/lib/blog";
 import { formatDate } from "@/lib/format";
-import { articleSchema, breadcrumbSchema, graphSchema } from "@/lib/schema";
+import { articleSchema, breadcrumbSchema, faqSchema, graphSchema } from "@/lib/schema";
+import { site } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -27,13 +29,44 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: post.description,
+    keywords: post.keywords,
+    authors: [{ name: site.name, url: site.url }],
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       type: "article",
+      url: `/blog/${post.slug}`,
+      title: post.title,
+      description: post.description,
       publishedTime: post.date,
+      modifiedTime: post.updated,
+      section: post.category,
+      tags: post.keywords,
+      authors: [site.name],
       images: [{ url: post.image, alt: post.imageAlt }],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [post.image],
+    },
   };
+}
+
+function AnchorHeading({ level, children }: { level: 2 | 3; children?: React.ReactNode }) {
+  const text = typeof children === "string" ? children : "";
+  const id = headingId(text);
+  const Tag = level === 2 ? "h2" : "h3";
+  return (
+    <Tag id={id || undefined} className="anchor-heading">
+      {children}
+      {id ? (
+        <a href={`#${id}`} className="anchor-link" aria-label={`Link to ${text}`}>
+          #
+        </a>
+      ) : null}
+    </Tag>
+  );
 }
 
 export default async function PostPage({ params }: Props) {
@@ -43,6 +76,8 @@ export default async function PostPage({ params }: Props) {
   const { content } = await compileMDX({
     source: post.content,
     components: {
+      h2: ({ children }) => <AnchorHeading level={2}>{children}</AnchorHeading>,
+      h3: ({ children }) => <AnchorHeading level={3}>{children}</AnchorHeading>,
       a: ({ href = "", children }) =>
         href.startsWith("/") ? (
           <Link href={href}>{children}</Link>
@@ -63,6 +98,7 @@ export default async function PostPage({ params }: Props) {
       <JsonLd
         data={graphSchema([
           articleSchema(post),
+          faqSchema(post.faq),
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "Journal", path: "/blog" },
@@ -79,12 +115,21 @@ export default async function PostPage({ params }: Props) {
         </ViewTransition>
         <div className="scrim" />
         <div className="page-width relative z-10 pb-12 pt-32 md:pb-16">
-          <Link href="/blog" className="group rise mb-6 flex w-fit items-center gap-2.5 text-sm font-medium text-paper">
-            <span className="transition-transform duration-500 ease-out group-hover:-translate-x-1" aria-hidden="true">
-              ←
-            </span>
-            All notes
-          </Link>
+          <nav aria-label="Breadcrumb" className="rise mb-6 text-sm font-medium text-paper">
+            <ol className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+              <li>
+                <Link href="/" className="hover:underline">
+                  Home
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li>
+                <Link href="/blog" className="hover:underline">
+                  Journal
+                </Link>
+              </li>
+            </ol>
+          </nav>
           <p className="chip rise" style={{ "--delay": "60ms" } as React.CSSProperties}>
             {post.category}
           </p>
@@ -102,13 +147,21 @@ export default async function PostPage({ params }: Props) {
 
       <div className="page-width grid gap-10 py-14 md:py-20 lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-16">
         <aside className="h-fit space-y-6 border-b border-line pb-8 text-sm lg:sticky lg:top-28 lg:border-b-0 lg:border-t lg:pb-0 lg:pt-5">
-          <dl className="grid grid-cols-3 gap-4 lg:grid-cols-1">
+          <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-1">
             <div>
               <dt className="field-label">Published</dt>
               <dd className="mt-1.5">
                 <time dateTime={post.date}>{formatDate(post.date)}</time>
               </dd>
             </div>
+            {post.updated !== post.date ? (
+              <div>
+                <dt className="field-label">Updated</dt>
+                <dd className="mt-1.5">
+                  <time dateTime={post.updated}>{formatDate(post.updated)}</time>
+                </dd>
+              </div>
+            ) : null}
             <div>
               <dt className="field-label">Reading</dt>
               <dd className="mt-1.5">{post.minutes} minutes</dd>
@@ -118,9 +171,42 @@ export default async function PostPage({ params }: Props) {
               <dd className="mt-1.5">The Eventures desk</dd>
             </div>
           </dl>
+          <ArticleContents headings={post.headings} />
           <ShareTools title={post.title} />
         </aside>
-        <div className="prose-club prose-article">{content}</div>
+
+        <div className="min-w-0">
+          {post.takeaways.length > 0 ? (
+            <aside className="takeaways" aria-labelledby="takeaways-title">
+              <h2 id="takeaways-title" className="kicker">
+                The short version
+              </h2>
+              <ul>
+                {post.takeaways.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </aside>
+          ) : null}
+
+          <div className="prose-club prose-article">{content}</div>
+
+          {post.faq.length > 0 ? (
+            <section className="faq" aria-labelledby="faq-title">
+              <h2 id="faq-title" className="display text-3xl md:text-4xl">
+                Questions, answered
+              </h2>
+              <div className="mt-6">
+                {post.faq.map((item) => (
+                  <details key={item.q}>
+                    <summary>{item.q}</summary>
+                    <p>{item.a}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+          ) : null}
+        </div>
       </div>
 
       <div className="page-width pb-16 md:pb-24">

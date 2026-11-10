@@ -18,7 +18,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
   if (!enabled) return children;
 
   return (
-    <ReactLenis root options={{ autoRaf: true, lerp: 0.085, smoothWheel: true }}>
+    <ReactLenis root options={{ autoRaf: true, lerp: 0.085, smoothWheel: true, anchors: true }}>
       {children}
     </ReactLenis>
   );

@@ -556,6 +556,142 @@ body {
   line-height: 0.82;
 }
 
+/* ---------- Article structure: headings, contents, takeaways, FAQ ---------- */
+
+.prose-article h2 {
+  margin-top: 3.4rem;
+  margin-bottom: 0.2rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.prose-club h2,
+.prose-club h3 {
+  scroll-margin-top: 7rem;
+}
+
+.prose-club h3 {
+  margin-top: 1.8rem;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.anchor-link {
+  margin-left: 0.5rem;
+  color: var(--color-copper) !important;
+  font-family: var(--font-sans, inherit);
+  font-size: 0.7em;
+  text-decoration: none !important;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.anchor-heading:hover .anchor-link,
+.anchor-link:focus-visible {
+  opacity: 1;
+}
+
+.toc {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-line);
+}
+
+@media (min-width: 1024px) {
+  .toc {
+    max-height: calc(100svh - 22rem);
+    overflow-y: auto;
+  }
+}
+
+.toc-link {
+  display: block;
+  padding: 0.38rem 0 0.38rem 0.8rem;
+  border-left: 2px solid var(--color-line);
+  color: var(--color-ink-soft);
+  font-size: 0.86rem;
+  line-height: 1.35;
+  transition:
+    color 0.3s ease,
+    border-color 0.4s var(--ease-out-expo),
+    padding-left 0.4s var(--ease-out-expo);
+}
+
+.toc-link:hover,
+.toc-link[aria-current="location"] {
+  border-left-color: var(--color-copper);
+  padding-left: 1.05rem;
+  color: var(--color-ink);
+}
+
+.takeaways {
+  max-width: 66ch;
+  margin-bottom: 2.6rem;
+  padding: 1.6rem 1.7rem 1.4rem;
+  border-left: 3px solid var(--color-copper);
+  background: var(--color-paper-deep);
+}
+
+.takeaways ul {
+  margin-top: 0.9rem;
+  padding-left: 1.1rem;
+  list-style: disc;
+  color: var(--color-ink);
+  line-height: 1.65;
+}
+
+.takeaways li + li {
+  margin-top: 0.55rem;
+}
+
+.faq {
+  max-width: 66ch;
+  margin-top: 4.5rem;
+  padding-top: 2.2rem;
+  border-top: 1px solid var(--color-line);
+}
+
+.faq details {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.faq summary {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.15rem 0;
+  color: var(--color-ink);
+  font-weight: 500;
+  line-height: 1.4;
+  list-style: none;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  flex: none;
+  color: var(--color-copper-deep);
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform 0.45s var(--ease-out-expo);
+}
+
+.faq details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq details p {
+  margin: 0 0 1.3rem;
+  color: var(--color-ink-soft);
+  line-height: 1.75;
+}
+
 /* ---------- Motion on scroll ---------- */
 
 .reveal {

@@ -8,23 +8,33 @@ import { Reveal } from "@/components/reveal";
 import { WhatsAppButton } from "@/components/whatsapp";
 import { getPosts } from "@/lib/blog";
 import { formatDate } from "@/lib/format";
-import { breadcrumbSchema, graphSchema } from "@/lib/schema";
+import { blogSchema, breadcrumbSchema, graphSchema } from "@/lib/schema";
+
+const blogDescription =
+  "Notes on planning northern Pakistan and events from Lahore: seasons, roads, Kumrat and Swat, packing, a nikah in the hills, and how a custom brief becomes a plan.";
 
 export const metadata: Metadata = {
-  title: "Journal",
-  description:
-    "Notes on planning northern Pakistan and events from Lahore: seasons, roads, Kumrat and Swat, packing, a nikah in the hills, and how a custom brief becomes a plan.",
-  alternates: { canonical: "/blog" },
+  title: "Journal: northern Pakistan travel and event planning notes",
+  description: blogDescription,
+  alternates: { canonical: "/blog", types: { "application/rss+xml": "/feed.xml" } },
+  openGraph: {
+    type: "website",
+    url: "/blog",
+    title: "The Eventures Club Journal",
+    description: blogDescription,
+  },
 };
 
 export default async function BlogPage() {
-  const [featured, ...rest] = await getPosts();
+  const posts = await getPosts();
+  const [featured, ...rest] = posts;
   if (!featured) return null;
 
   return (
     <>
       <JsonLd
         data={graphSchema([
+          blogSchema(posts),
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "Journal", path: "/blog" },

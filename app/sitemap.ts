@@ -22,7 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
     ...posts.map((post) => ({
       url: absoluteUrl(`/blog/${post.slug}`),
-      lastModified: post.date,
+      lastModified: post.updated,
     })),
   ];
 }
